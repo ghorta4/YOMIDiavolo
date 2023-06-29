@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Thum.wav-7eba01579f899defccc2813aa6d0fa59.sample"
+
+[deps]
+
+source_file="res://DiavoloChar/characters/Diavolo/Sounds/Thum.wav"
+dest_files=[ "res://.import/Thum.wav-7eba01579f899defccc2813aa6d0fa59.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://characters/BaseChar.gdshader" type="Shader" id=1]
+[ext_resource path="res://fx/ParticleEffect.tscn" type="PackedScene" id=2]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/eicon.png" type="Texture" id=3]
+
+[sub_resource type="ShaderMaterial" id=3]
+resource_local_to_scene = true
+shader = ExtResource( 1 )
+shader_param/use_extra_color_1 = false
+shader_param/use_extra_color_2 = false
+shader_param/extra_replace_color_1 = Color( 1, 0, 1, 1 )
+shader_param/extra_replace_color_2 = Color( 1, 0, 1, 1 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/extra_color_1 = Color( 1, 1, 1, 1 )
+shader_param/extra_color_2 = Color( 1, 1, 1, 1 )
+shader_param/max_color_distance = 0.01
+shader_param/super_dim = false
+shader_param/use_outline = false
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="Curve" id=6]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.782178, 0.972727 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=5]
+offsets = PoolRealArray( 0, 0.0670391, 0.614525, 1 )
+colors = PoolColorArray( 0.141176, 0.141176, 0.141176, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[node name="ParticleEffect" instance=ExtResource( 2 )]
+material = SubResource( 3 )
+z_index = -1
+lifetime = 3.0
+
+[node name="ffx" type="CPUParticles2D" parent="." index="1"]
+z_index = 2500
+amount = 2
+lifetime = 0.6
+preprocess = 0.05
+explosiveness = 1.0
+lifetime_randomness = 0.33
+draw_order = 1
+texture = ExtResource( 3 )
+direction = Vector2( 1, 1 )
+spread = 0.0
+gravity = Vector2( 0, 0 )
+scale_amount = 0.5
+scale_amount_random = 1.0
+scale_amount_curve = SubResource( 6 )
+color = Color( 0.835294, 0.470588, 0.709804, 1 )
+color_ramp = SubResource( 5 )

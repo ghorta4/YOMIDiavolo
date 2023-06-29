@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Impale.wav-035ff786f51d4a2bbac28f283d60e978.sample"
+
+[deps]
+
+source_file="res://DiavoloChar/characters/Diavolo/Sounds/Impale.wav"
+dest_files=[ "res://.import/Impale.wav-035ff786f51d4a2bbac28f283d60e978.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

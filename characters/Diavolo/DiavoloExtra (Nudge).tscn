@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://ui/ActionSelector/PlayerExtra.tscn" type="PackedScene" id=1]
+[ext_resource path="res://ui/ActionSelector/ActionUIData/ActionUIData.gd" type="Script" id=2]
+[ext_resource path="res://theme.tres" type="Theme" id=3]
+[ext_resource path="res://ui/XYPlot/XYPlot.tscn" type="PackedScene" id=4]
+
+[node name="DiavoloExtra" instance=ExtResource( 1 )]
+theme = ExtResource( 3 )
+alignment = 1
+script = ExtResource( 2 )
+display_offset = Vector2( 0, 0 )
+
+[node name="Nudge" parent="." index="0" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 290.0
+margin_right = 350.0

@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ringring.wav-5b76239ff0e063d62efa4815a8f8485e.sample"
+
+[deps]
+
+source_file="res://DiavoloChar/characters/Diavolo/Sounds/ringring.wav"
+dest_files=[ "res://.import/ringring.wav-5b76239ff0e063d62efa4815a8f8485e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

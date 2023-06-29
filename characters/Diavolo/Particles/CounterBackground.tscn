@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/pillar.png" type="Texture" id=1]
+[ext_resource path="res://fx/ParticleEffect.tscn" type="PackedScene" id=2]
+[ext_resource path="res://characters/BaseChar.gdshader" type="Shader" id=3]
+
+[sub_resource type="ShaderMaterial" id=3]
+resource_local_to_scene = true
+shader = ExtResource( 3 )
+shader_param/use_extra_color_1 = false
+shader_param/use_extra_color_2 = false
+shader_param/extra_replace_color_1 = Color( 1, 0, 1, 1 )
+shader_param/extra_replace_color_2 = Color( 1, 0, 1, 1 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/extra_color_1 = Color( 1, 1, 1, 1 )
+shader_param/extra_color_2 = Color( 1, 1, 1, 1 )
+shader_param/max_color_distance = 0.01
+shader_param/super_dim = false
+shader_param/use_outline = false
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+
+[node name="ParticleEffect" instance=ExtResource( 2 )]
+material = SubResource( 3 )
+z_index = 1
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="." index="1"]
+position = Vector2( -646, 98 )
+z_index = -500
+amount = 24
+lifetime = 2.0
+preprocess = 3.0
+speed_scale = 0.4
+lifetime_randomness = 0.05
+local_coords = false
+texture = ExtResource( 1 )
+direction = Vector2( 3, -0.5 )
+spread = 5.0
+gravity = Vector2( 0, 450 )
+initial_velocity = 1000.0
+initial_velocity_random = 0.07
+scale_amount = 0.4
+
+[node name="CPUParticles2D3" type="CPUParticles2D" parent="." index="2"]
+position = Vector2( 1095, 350 )
+z_index = 500
+amount = 24
+lifetime = 2.0
+preprocess = 3.0
+speed_scale = 0.4
+lifetime_randomness = 0.05
+local_coords = false
+texture = ExtResource( 1 )
+direction = Vector2( -3, 0.8 )
+spread = 2.0
+gravity = Vector2( 0, -450 )
+initial_velocity = 1200.0
+initial_velocity_random = 0.07
+scale_amount = 0.6

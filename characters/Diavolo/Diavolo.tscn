@@ -1,0 +1,3521 @@
+[gd_scene load_steps=419 format=2]
+
+[ext_resource path="res://characters/BaseChar.tscn" type="PackedScene" id=1]
+[ext_resource path="res://characters/BaseChar.gdshader" type="Shader" id=2]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/States/GutJab.gd" type="Script" id=3]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Icons/KingCrimson11.png" type="Texture" id=4]
+[ext_resource path="res://mechanics/Hitbox.gd" type="Script" id=5]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/States/LowKick.gd" type="Script" id=6]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Diavolo.gd" type="Script" id=7]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/DiavoloExtra.tscn" type="PackedScene" id=8]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set1.png" type="Texture" id=9]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/DiavoloPlayerInfo.tscn" type="PackedScene" id=10]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/States/Summon.gd" type="Script" id=11]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/States/TimeSkip1.gd" type="Script" id=12]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/States/PunchCommand.gd" type="Script" id=13]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/States/ChopCommand.gd" type="Script" id=14]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/States/GroundPunchCommand.gd" type="Script" id=15]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/States/ChopCommand2.gd" type="Script" id=16]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/States/NudgeCommand.gd" type="Script" id=17]
+[ext_resource path="res://characters/stickman/sprites/stickman7.png" type="Texture" id=18]
+[ext_resource path="res://characters/stickman/sprites/stickman8.png" type="Texture" id=19]
+[ext_resource path="res://characters/stickman/sprites/stickman6.png" type="Texture" id=20]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/DiavoloExtra (Nudge).tscn" type="PackedScene" id=21]
+[ext_resource path="res://characters/stickman/sprites/stickman5.png" type="Texture" id=22]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Icons/KingCrimson25.png" type="Texture" id=23]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set18.png" type="Texture" id=24]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set11.png" type="Texture" id=25]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set14.png" type="Texture" id=26]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set17.png" type="Texture" id=27]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/reanimations27.png" type="Texture" id=28]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set10.png" type="Texture" id=29]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set9.png" type="Texture" id=30]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/reanimations33.png" type="Texture" id=31]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/reanimations13.png" type="Texture" id=32]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/reanimations24.png" type="Texture" id=33]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/reanimations26.png" type="Texture" id=34]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set12.png" type="Texture" id=35]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/reanimations25.png" type="Texture" id=36]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set19.png" type="Texture" id=37]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set20.png" type="Texture" id=38]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set13.png" type="Texture" id=39]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/reanimations17.png" type="Texture" id=40]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/reanimations14.png" type="Texture" id=41]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set2 2.png" type="Texture" id=42]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set2 16.png" type="Texture" id=43]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/States/Desummon.gd" type="Script" id=44]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set2 15.png" type="Texture" id=45]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set2 5.png" type="Texture" id=46]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set2 4.png" type="Texture" id=47]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set2 13.png" type="Texture" id=48]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set2 12.png" type="Texture" id=49]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set2 1.png" type="Texture" id=50]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/reanimations18.png" type="Texture" id=51]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/reanimations20.png" type="Texture" id=52]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/reanimations21.png" type="Texture" id=53]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/reanimations31.png" type="Texture" id=54]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/reanimations30.png" type="Texture" id=55]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/reanimations28.png" type="Texture" id=56]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set2 17.png" type="Texture" id=57]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set2 18.png" type="Texture" id=58]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/States/TimeSkipSuper.gd" type="Script" id=59]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/TimeSkipSelect.tscn" type="PackedScene" id=60]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set2 19.png" type="Texture" id=61]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set2 20.png" type="Texture" id=62]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/States/TimeEraseSuper.gd" type="Script" id=63]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sounds/timeErase.wav" type="AudioStream" id=64]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sounds/timeResumes.wav" type="AudioStream" id=65]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/States/TimeEraseEnd.gd" type="Script" id=66]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sounds/shortSkip.wav" type="AudioStream" id=67]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set3 16.png" type="Texture" id=68]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set3 20.png" type="Texture" id=69]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set3 14.png" type="Texture" id=70]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set3 15.png" type="Texture" id=71]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set3 17.png" type="Texture" id=72]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set3 19.png" type="Texture" id=73]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set3 12.png" type="Texture" id=74]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set3 18.png" type="Texture" id=75]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set3 13.png" type="Texture" id=76]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set3 1.png" type="Texture" id=77]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set3 2.png" type="Texture" id=78]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set3 4.png" type="Texture" id=79]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set3 3.png" type="Texture" id=80]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set3 11.png" type="Texture" id=81]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set3 21.png" type="Texture" id=82]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set3 8.png" type="Texture" id=83]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set3 10.png" type="Texture" id=84]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set3 9.png" type="Texture" id=85]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/States/KCPunch.gd" type="Script" id=86]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Icons/KingCrimson12.png" type="Texture" id=87]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Icons/KingCrimson13.png" type="Texture" id=88]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Icons/KingCrimson6.png" type="Texture" id=89]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Icons/KingCrimson15.png" type="Texture" id=90]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Icons/KingCrimson16.png" type="Texture" id=91]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Icons/KingCrimson1.png" type="Texture" id=92]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Icons/KingCrimson9.png" type="Texture" id=93]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Icons/KingCrimson2.png" type="Texture" id=94]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Icons/KingCrimson17.png" type="Texture" id=95]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Icons/KingCrimson3.png" type="Texture" id=96]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Icons/KingCrimson8.png" type="Texture" id=97]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Icons/KingCrimson5.png" type="Texture" id=98]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Icons/KingCrimson10.png" type="Texture" id=99]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Icons/KingCrimson4.png" type="Texture" id=100]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Icons/KingCrimson21.png" type="Texture" id=101]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/States/CounterSuper.gd" type="Script" id=102]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set3 26.png" type="Texture" id=103]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set3 29.png" type="Texture" id=104]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set3 28.png" type="Texture" id=105]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set3 31.png" type="Texture" id=106]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set3 30.png" type="Texture" id=107]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set3 27.png" type="Texture" id=108]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Icons/KingCrimson22.png" type="Texture" id=109]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set3 34.png" type="Texture" id=110]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set3 35.png" type="Texture" id=111]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set3 36.png" type="Texture" id=112]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/States/CounterExecute2.gd" type="Script" id=113]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/States/CounterExecute.gd" type="Script" id=114]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/blank.png" type="Texture" id=115]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/States/CounterExecute3.gd" type="Script" id=116]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set3 38.png" type="Texture" id=117]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set3 40.png" type="Texture" id=118]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set3 42.png" type="Texture" id=119]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set3 43.png" type="Texture" id=120]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set3 37.png" type="Texture" id=121]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set3 39.png" type="Texture" id=122]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/base set3 41.png" type="Texture" id=123]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sounds/KCDoughnut.wav" type="AudioStream" id=124]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sounds/KCDougnut2.wav" type="AudioStream" id=125]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sounds/KC Counter.wav" type="AudioStream" id=126]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sounds/S_oramuda_st.wav" type="AudioStream" id=127]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sounds/S_std_appear.wav" type="AudioStream" id=128]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sounds/S_std_disappear.wav" type="AudioStream" id=129]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/States/SkipBurst.gd" type="Script" id=130]
+[ext_resource path="res://fx/BurstEffect.tscn" type="PackedScene" id=131]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Icons/KingCrimson23.png" type="Texture" id=132]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/goldenUpdate3.png" type="Texture" id=133]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/goldenUpdate5.png" type="Texture" id=134]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/goldenUpdate1.png" type="Texture" id=135]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/goldenUpdate2.png" type="Texture" id=136]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/goldenUpdate4.png" type="Texture" id=137]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/States/TackleCommand.gd" type="Script" id=138]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/GenericDistanceActionUIData.tscn" type="PackedScene" id=139]
+[ext_resource path="res://fx/DashFloorParticle.tscn" type="PackedScene" id=140]
+[ext_resource path="res://characters/states/Dash.gd" type="Script" id=141]
+[ext_resource path="res://ui/ActionSelector/StateIcons/dash.png" type="Texture" id=142]
+[ext_resource path="res://sound/common/dash1.wav" type="AudioStream" id=143]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Icons/KingCrimson28.png" type="Texture" id=144]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/States/StandDashCharge.gd" type="Script" id=145]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/goldenUpdate8.png" type="Texture" id=146]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/goldenUpdate6.png" type="Texture" id=147]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/goldenUpdate7.png" type="Texture" id=148]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/goldenUpdate9.png" type="Texture" id=149]
+[ext_resource path="res://fx/JumpParticle.tscn" type="PackedScene" id=150]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/States/StandJump.gd" type="Script" id=151]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Icons/KingCrimson27.png" type="Texture" id=152]
+[ext_resource path="res://sound/common/explosion3.wav" type="AudioStream" id=153]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/StandJumpActionUIData.tscn" type="PackedScene" id=154]
+[ext_resource path="res://ui/ActionSelector/ActionUIData/DashActionUIData.tscn" type="PackedScene" id=155]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/States/TeleDodge.gd" type="Script" id=156]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Icons/KingCrimson29.png" type="Texture" id=157]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/goldenUpdate24.png" type="Texture" id=158]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/goldenUpdate26.png" type="Texture" id=159]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/goldenUpdate25.png" type="Texture" id=160]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/goldenUpdate27.png" type="Texture" id=161]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/States/AirGrabCommand.gd" type="Script" id=162]
+[ext_resource path="res://characters/states/Idle.gd" type="Script" id=163]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Icons/KingCrimson7.png" type="Texture" id=164]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/goldenUpdate29.png" type="Texture" id=165]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/goldenUpdate28.png" type="Texture" id=166]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/goldenUpdate30.png" type="Texture" id=167]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/goldenUpdate31.png" type="Texture" id=168]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/States/AirTele.gd" type="Script" id=169]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/AirteleActionUIData.tscn" type="PackedScene" id=170]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Icons/KingCrimson26.png" type="Texture" id=171]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/goldenUpdate22.png" type="Texture" id=172]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/goldenUpdate23.png" type="Texture" id=173]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/goldenUpdate19.png" type="Texture" id=174]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/goldenUpdate21.png" type="Texture" id=175]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/goldenUpdate20.png" type="Texture" id=176]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/States/GrabCounter.gd" type="Script" id=177]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Icons/KingCrimson30.png" type="Texture" id=178]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Icons/KingCrimson24.png" type="Texture" id=179]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Icons/KingCrimson31.png" type="Texture" id=180]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/diavoloRequiem32.png" type="Texture" id=181]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/diavoloRequiem28.png" type="Texture" id=182]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/diavoloRequiem30.png" type="Texture" id=183]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/diavoloRequiem33.png" type="Texture" id=184]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/diavoloRequiem29.png" type="Texture" id=185]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/diavoloRequiem31.png" type="Texture" id=186]
+[ext_resource path="res://HurtboxState.gd" type="Script" id=187]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/States/StandInOnly.gd" type="Script" id=188]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/diavoloRequiem2.png" type="Texture" id=189]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/diavoloRequiem3.png" type="Texture" id=190]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/diavoloRequiem5.png" type="Texture" id=191]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/diavoloRequiem6.png" type="Texture" id=192]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/diavoloRequiem7.png" type="Texture" id=193]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/diavoloRequiem4.png" type="Texture" id=194]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/diavoloRequiem1.png" type="Texture" id=195]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/diavoloRequiem9.png" type="Texture" id=196]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/diavoloRequiem8.png" type="Texture" id=197]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/diavoloRequiem10.png" type="Texture" id=198]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/diavoloRequiem11.png" type="Texture" id=199]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/diavoloRequiem12.png" type="Texture" id=200]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/diavoloRequiem13.png" type="Texture" id=201]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/diavoloRequiem14.png" type="Texture" id=202]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/diavoloRequiem15.png" type="Texture" id=203]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/diavoloRequiem51.png" type="Texture" id=204]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/diavoloRequiem52.png" type="Texture" id=205]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/diavoloRequiem54.png" type="Texture" id=206]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/diavoloRequiem55.png" type="Texture" id=207]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/diavoloRequiem53.png" type="Texture" id=208]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/diavoloRequiem50.png" type="Texture" id=209]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/StandingDivekickUIData.tscn" type="PackedScene" id=210]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/States/StandingDivekick.gd" type="Script" id=211]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/diavoloRequiem17.png" type="Texture" id=212]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/diavoloRequiem20.png" type="Texture" id=213]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/diavoloRequiem16.png" type="Texture" id=214]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/diavoloRequiem19.png" type="Texture" id=215]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/diavoloRequiem18.png" type="Texture" id=216]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/States/AirHook.gd" type="Script" id=217]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/diavoloRequiem45.png" type="Texture" id=218]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/diavoloRequiem48.png" type="Texture" id=219]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/diavoloRequiem46.png" type="Texture" id=220]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/diavoloRequiem49.png" type="Texture" id=221]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/diavoloRequiem44.png" type="Texture" id=222]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/diavoloRequiem47.png" type="Texture" id=223]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/States/KCArmoredPunch.gd" type="Script" id=224]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/diavoloRequiem23.png" type="Texture" id=225]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/diavoloRequiem22.png" type="Texture" id=226]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/diavoloRequiem21.png" type="Texture" id=227]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/diavoloRequiem24.png" type="Texture" id=228]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/States/KCDivekick.gd" type="Script" id=229]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/diavoloRequiem26.png" type="Texture" id=230]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/diavoloRequiem25.png" type="Texture" id=231]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/diavoloRequiem27.png" type="Texture" id=232]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/diavoloRequiem42.png" type="Texture" id=233]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/diavoloRequiem34.png" type="Texture" id=234]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/diavoloRequiem36.png" type="Texture" id=235]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/diavoloRequiem37.png" type="Texture" id=236]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/diavoloRequiem38.png" type="Texture" id=237]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/diavoloRequiem39.png" type="Texture" id=238]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/diavoloRequiem40.png" type="Texture" id=239]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/diavoloRequiem35.png" type="Texture" id=240]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/diavoloRequiem41.png" type="Texture" id=241]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/diavoloRequiem43.png" type="Texture" id=242]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sounds/S_hit_wind2.wav" type="AudioStream" id=243]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sounds/Impale.wav" type="AudioStream" id=244]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sounds/standOut2.wav" type="AudioStream" id=245]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Icons/KingCrimson19.png" type="Texture" id=246]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Icons/KingCrimson20.png" type="Texture" id=247]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Icons/KingCrimson33.png" type="Texture" id=248]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Icons/KingCrimson32.png" type="Texture" id=249]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Icons/KingCrimson34.png" type="Texture" id=250]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Icons/KingCrimson35.png" type="Texture" id=251]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Icons/KingCrimson36.png" type="Texture" id=252]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/UnblockableHitbox.gd" type="Script" id=253]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/States/WhiffInstantCancel.gd" type="Script" id=254]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/reanimations34.png" type="Texture" id=255]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/States/NewIdle.gd" type="Script" id=256]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/reanimations3.png" type="Texture" id=257]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/reanimations1.png" type="Texture" id=258]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/reanimations2.png" type="Texture" id=259]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/reanimations4.png" type="Texture" id=260]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/States/Walk.gd" type="Script" id=261]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/reanimations38.png" type="Texture" id=262]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/reanimations40.png" type="Texture" id=263]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/reanimations41.png" type="Texture" id=264]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/reanimations39.png" type="Texture" id=265]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/reanimations36.png" type="Texture" id=266]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sounds/Thum.wav" type="AudioStream" id=267]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/reanimations15.png" type="Texture" id=268]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/reanimations16.png" type="Texture" id=269]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/reanimations12.png" type="Texture" id=270]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/reanimations22.png" type="Texture" id=271]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/reanimations19.png" type="Texture" id=272]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/reanimations23.png" type="Texture" id=273]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/reanimations32.png" type="Texture" id=274]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/reanimations29.png" type="Texture" id=275]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/DiavoloOHeaven6.png" type="Texture" id=276]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/DiavoloOHeaven3.png" type="Texture" id=277]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/DiavoloOHeaven4.png" type="Texture" id=278]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/DiavoloOHeaven7.png" type="Texture" id=279]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/DiavoloOHeaven5.png" type="Texture" id=280]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/DiavoloOHeaven1.png" type="Texture" id=281]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/DiavoloOHeaven2.png" type="Texture" id=282]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/DiavoloOHeaven11.png" type="Texture" id=283]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/DiavoloOHeaven13.png" type="Texture" id=284]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/DiavoloOHeaven14.png" type="Texture" id=285]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/DiavoloOHeaven9.png" type="Texture" id=286]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/DiavoloOHeaven8.png" type="Texture" id=287]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/DiavoloOHeaven10.png" type="Texture" id=288]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/DiavoloOHeaven12.png" type="Texture" id=289]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/DiavoloOHeaven15.png" type="Texture" id=290]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/DiavoloOHeaven16.png" type="Texture" id=291]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/DiavoloOHeaven21.png" type="Texture" id=292]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/DiavoloOHeaven19.png" type="Texture" id=293]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/DiavoloOHeaven20.png" type="Texture" id=294]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/DiavoloOHeaven17.png" type="Texture" id=295]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Icons/KingCrimson18.png" type="Texture" id=296]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/DiavoloOHeaven22.png" type="Texture" id=297]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/DiavoloOHeaven18.png" type="Texture" id=298]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/States/KCKnife.gd" type="Script" id=299]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Knife.tscn" type="PackedScene" id=300]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/KnifeActionUIData.tscn" type="PackedScene" id=301]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/GoldenWind25.png" type="Texture" id=302]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/GoldenWind20.png" type="Texture" id=303]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/GoldenWind21.png" type="Texture" id=304]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/GoldenWind18.png" type="Texture" id=305]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/GoldenWind24.png" type="Texture" id=306]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/GoldenWind23.png" type="Texture" id=307]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/GoldenWind19.png" type="Texture" id=308]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/GoldenWind22.png" type="Texture" id=309]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/States/Epitaph.gd" type="Script" id=310]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/States/EPDodge.gd" type="Script" id=311]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sounds/S_kira.wav" type="AudioStream" id=312]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Particles/Epitaph.tscn" type="PackedScene" id=313]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Icons/KingCrimson40.png" type="Texture" id=314]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Icons/KingCrimson41.png" type="Texture" id=315]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Icons/KingCrimson39.png" type="Texture" id=316]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Icons/KingCrimson37.png" type="Texture" id=317]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Icons/KingCrimson38.png" type="Texture" id=318]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/States/Intro.gd" type="Script" id=319]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/GoldenWind1.png" type="Texture" id=320]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/GoldenWind4.png" type="Texture" id=321]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/GoldenWind5.png" type="Texture" id=322]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/GoldenWind2.png" type="Texture" id=323]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/GoldenWind6.png" type="Texture" id=324]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/GoldenWind3.png" type="Texture" id=325]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/GoldenWind7.png" type="Texture" id=326]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/GoldenWind15.png" type="Texture" id=327]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/GoldenWind12.png" type="Texture" id=328]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/GoldenWind10.png" type="Texture" id=329]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/GoldenWind8.png" type="Texture" id=330]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/GoldenWind14.png" type="Texture" id=331]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/GoldenWind11.png" type="Texture" id=332]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/GoldenWind9.png" type="Texture" id=333]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/GoldenWind13.png" type="Texture" id=334]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sounds/moshimoshi.wav" type="AudioStream" id=335]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Particles/Frog.tscn" type="PackedScene" id=336]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sounds/S_swing05.wav" type="AudioStream" id=337]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sounds/S_swing10.wav" type="AudioStream" id=338]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sounds/S_swing07.wav" type="AudioStream" id=339]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sounds/S_swing06.wav" type="AudioStream" id=340]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sounds/S_oramuda_button2.wav" type="AudioStream" id=341]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sounds/S_guard_std.wav" type="AudioStream" id=342]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sounds/S_fireHit.wav" type="AudioStream" id=343]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sounds/S_hit_std_M.wav" type="AudioStream" id=344]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sounds/S_2jsp_swing1.wav" type="AudioStream" id=345]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sounds/S_guard.wav" type="AudioStream" id=346]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sounds/S_std_swing02.wav" type="AudioStream" id=347]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sounds/S_guard_wav.wav" type="AudioStream" id=348]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/States/Pose.gd" type="Script" id=349]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sounds/guh.wav" type="AudioStream" id=350]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/States/RushCommand.gd" type="Script" id=351]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/StandInEpic1.png" type="Texture" id=352]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/StandInEpic3.png" type="Texture" id=353]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/StandInEpic4.png" type="Texture" id=354]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/StandInEpic5.png" type="Texture" id=355]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/StandInEpic2.png" type="Texture" id=356]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Rock.tscn" type="PackedScene" id=357]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/States/KCRock.gd" type="Script" id=358]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Particles/RockThrow.tscn" type="PackedScene" id=359]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/StandInEpic23.png" type="Texture" id=360]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/StandInEpic22.png" type="Texture" id=361]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/StandInEpic21.png" type="Texture" id=362]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/States/ArmorCharge.gd" type="Script" id=363]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/ArmorChargeUIData.tscn" type="PackedScene" id=364]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sounds/S_brk_rock.wav" type="AudioStream" id=365]
+[ext_resource path="res://sound/common/jump1.wav" type="AudioStream" id=366]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/StandInEpic25.png" type="Texture" id=367]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/StandInEpic28.png" type="Texture" id=368]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/StandInEpic26.png" type="Texture" id=369]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/StandInEpic24.png" type="Texture" id=370]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/StandInEpic27.png" type="Texture" id=371]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sounds/ringring.wav" type="AudioStream" id=372]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/States/CallBoss.gd" type="Script" id=373]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/StandInEpic11.png" type="Texture" id=374]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/StandInEpic16.png" type="Texture" id=375]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/StandInEpic18.png" type="Texture" id=376]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/StandInEpic19.png" type="Texture" id=377]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/StandInEpic15.png" type="Texture" id=378]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/StandInEpic20.png" type="Texture" id=379]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/StandInEpic9.png" type="Texture" id=380]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/StandInEpic12.png" type="Texture" id=381]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/StandInEpic14.png" type="Texture" id=382]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/StandInEpic17.png" type="Texture" id=383]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/StandInEpic13.png" type="Texture" id=384]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/StandInEpic10.png" type="Texture" id=385]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/NoqHitboxDrag.gd" type="Script" id=386]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/States/DoppioRush.gd" type="Script" id=387]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sounds/doppioRush.wav" type="AudioStream" id=388]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sounds/rushFinish.wav" type="AudioStream" id=389]
+[ext_resource path="res://characters/ThrowBox.gd" type="Script" id=390]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/StandInEpic32.png" type="Texture" id=391]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/StandInEpic30.png" type="Texture" id=392]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/StandInEpic31.png" type="Texture" id=393]
+[ext_resource path="res://sound/common/catch.wav" type="AudioStream" id=394]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/StandInEpic33.png" type="Texture" id=395]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/StandInEpic34.png" type="Texture" id=396]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/States/AirGrab2.gd" type="Script" id=397]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/States/AirGrab.gd" type="Script" id=398]
+[ext_resource path="res://characters/states/ThrowState.gd" type="Script" id=399]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/StandInEpic35.png" type="Texture" id=400]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/StandInEpic36.png" type="Texture" id=401]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/StandInEpic37.png" type="Texture" id=402]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Particles/AirGrabLand.tscn" type="PackedScene" id=403]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Icons/KingCrimson43.png" type="Texture" id=404]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Icons/KingCrimson45.png" type="Texture" id=405]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Icons/KingCrimson42.png" type="Texture" id=406]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Icons/KingCrimson46.png" type="Texture" id=407]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Icons/KingCrimson44.png" type="Texture" id=408]
+[ext_resource path="res://sound/common/whiff1.wav" type="AudioStream" id=409]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/States/ShortThrow.gd" type="Script" id=410]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sounds/DoppioSpeaking.wav" type="AudioStream" id=411]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sounds/ThereItIs.wav" type="AudioStream" id=412]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/KC Punch FFX/EndOTLineHit.tscn" type="PackedScene" id=413]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/States/TimeSkipExit.gd" type="Script" id=414]
+[ext_resource path="res://DiavoloChar/characters/Diavolo/Sprites/KCNew1.png" type="Texture" id=415]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 2 )
+shader_param/use_extra_color_1 = false
+shader_param/use_extra_color_2 = false
+shader_param/extra_replace_color_1 = Color( 1, 0, 1, 1 )
+shader_param/extra_replace_color_2 = Color( 1, 0, 1, 1 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/extra_color_1 = Color( 1, 1, 1, 1 )
+shader_param/extra_color_2 = Color( 1, 1, 1, 1 )
+shader_param/max_color_distance = 0.01
+shader_param/super_dim = false
+shader_param/use_outline = false
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="ShaderMaterial" id=2]
+resource_local_to_scene = true
+shader = ExtResource( 2 )
+shader_param/use_extra_color_1 = false
+shader_param/use_extra_color_2 = false
+shader_param/extra_replace_color_1 = Color( 1, 0, 1, 1 )
+shader_param/extra_replace_color_2 = Color( 1, 0, 1, 1 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/extra_color_1 = Color( 1, 1, 1, 1 )
+shader_param/extra_color_2 = Color( 1, 1, 1, 1 )
+shader_param/max_color_distance = 0.01
+shader_param/super_dim = false
+shader_param/use_outline = false
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 57 ), ExtResource( 58 ) ],
+"loop": true,
+"name": "AirKick",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 61 ), ExtResource( 62 ) ],
+"loop": true,
+"name": "AirKnee",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 166 ), ExtResource( 165 ), ExtResource( 167 ), ExtResource( 168 ) ],
+"loop": true,
+"name": "BasicCounterEnd",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 82 ) ],
+"loop": true,
+"name": "Blur",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 82 ), ExtResource( 26 ) ],
+"loop": true,
+"name": "BlurDodge",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 35 ) ],
+"loop": true,
+"name": "Burst",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 370 ), ExtResource( 367 ), ExtResource( 369 ), ExtResource( 369 ), ExtResource( 369 ), ExtResource( 369 ), ExtResource( 369 ), ExtResource( 369 ), ExtResource( 369 ), ExtResource( 369 ), ExtResource( 371 ), ExtResource( 368 ) ],
+"loop": true,
+"name": "CallBoss",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 110 ), ExtResource( 110 ), ExtResource( 110 ), ExtResource( 110 ), ExtResource( 110 ), ExtResource( 110 ), ExtResource( 110 ), ExtResource( 111 ), ExtResource( 112 ), ExtResource( 112 ), ExtResource( 112 ), ExtResource( 112 ), ExtResource( 112 ), ExtResource( 112 ), ExtResource( 112 ) ],
+"loop": true,
+"name": "CounterExecute",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 115 ) ],
+"loop": true,
+"name": "CounterExecute2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 121 ), ExtResource( 121 ), ExtResource( 121 ), ExtResource( 117 ), ExtResource( 122 ), ExtResource( 118 ), ExtResource( 123 ), ExtResource( 123 ), ExtResource( 123 ), ExtResource( 123 ), ExtResource( 123 ), ExtResource( 123 ), ExtResource( 123 ), ExtResource( 123 ), ExtResource( 123 ), ExtResource( 123 ), ExtResource( 123 ), ExtResource( 123 ), ExtResource( 123 ), ExtResource( 119 ), ExtResource( 119 ), ExtResource( 119 ), ExtResource( 120 ) ],
+"loop": true,
+"name": "CounterExecute3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 103 ), ExtResource( 108 ), ExtResource( 105 ), ExtResource( 104 ), ExtResource( 107 ), ExtResource( 106 ), ExtResource( 105 ), ExtResource( 104 ), ExtResource( 107 ), ExtResource( 106 ), ExtResource( 105 ), ExtResource( 104 ), ExtResource( 107 ), ExtResource( 106 ) ],
+"loop": true,
+"name": "CounterStart",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 29 ) ],
+"loop": true,
+"name": "DashBackward",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 30 ) ],
+"loop": true,
+"name": "DashForward",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 77 ), ExtResource( 78 ), ExtResource( 80 ), ExtResource( 79 ) ],
+"loop": true,
+"name": "Desummon",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 22 ), ExtResource( 20 ), ExtResource( 18 ), ExtResource( 19 ) ],
+"loop": true,
+"name": "DoubleJump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 309 ), ExtResource( 307 ), ExtResource( 306 ), ExtResource( 302 ) ],
+"loop": true,
+"name": "EPDodge",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 305 ), ExtResource( 308 ), ExtResource( 303 ), ExtResource( 304 ) ],
+"loop": true,
+"name": "EPProc",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 47 ), ExtResource( 46 ) ],
+"loop": true,
+"name": "ForwardThrow",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 35 ), ExtResource( 39 ), ExtResource( 26 ) ],
+"loop": true,
+"name": "Getup",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 50 ), ExtResource( 50 ), ExtResource( 42 ) ],
+"loop": true,
+"name": "Grab",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 174 ), ExtResource( 176 ), ExtResource( 175 ), ExtResource( 172 ), ExtResource( 173 ), ExtResource( 176 ), ExtResource( 174 ) ],
+"loop": true,
+"name": "GrabCounter",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 22 ) ],
+"loop": true,
+"name": "Grabbed",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 33 ), ExtResource( 36 ), ExtResource( 36 ), ExtResource( 34 ), ExtResource( 34 ), ExtResource( 28 ) ],
+"loop": true,
+"name": "GutJab",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 56 ), ExtResource( 275 ), ExtResource( 275 ), ExtResource( 55 ), ExtResource( 54 ), ExtResource( 274 ) ],
+"loop": true,
+"name": "HighHook",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 255 ) ],
+"loop": true,
+"name": "HurtAerial",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 27 ) ],
+"loop": true,
+"name": "HurtGroundedHigh",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 24 ) ],
+"loop": true,
+"name": "HurtGroundedLow",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 37 ) ],
+"loop": true,
+"name": "HurtGroundedMid",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 74 ), ExtResource( 76 ), ExtResource( 70 ), ExtResource( 71 ), ExtResource( 68 ), ExtResource( 72 ), ExtResource( 75 ), ExtResource( 71 ), ExtResource( 68 ), ExtResource( 72 ), ExtResource( 73 ), ExtResource( 69 ) ],
+"loop": true,
+"name": "Hustle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 39 ) ],
+"loop": true,
+"name": "InstantCancel",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 320 ), ExtResource( 320 ), ExtResource( 320 ), ExtResource( 320 ), ExtResource( 320 ), ExtResource( 320 ), ExtResource( 320 ), ExtResource( 320 ), ExtResource( 320 ), ExtResource( 320 ), ExtResource( 320 ), ExtResource( 323 ), ExtResource( 325 ), ExtResource( 321 ), ExtResource( 321 ), ExtResource( 321 ), ExtResource( 322 ), ExtResource( 324 ), ExtResource( 326 ), ExtResource( 330 ), ExtResource( 330 ), ExtResource( 330 ), ExtResource( 333 ), ExtResource( 333 ), ExtResource( 333 ), ExtResource( 329 ), ExtResource( 332 ), ExtResource( 328 ), ExtResource( 334 ), ExtResource( 331 ), ExtResource( 327 ) ],
+"loop": true,
+"name": "Intro",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 26 ) ],
+"loop": true,
+"name": "Jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 31 ) ],
+"loop": true,
+"name": "JumpBack",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 392 ), ExtResource( 393 ), ExtResource( 391 ) ],
+"loop": true,
+"name": "KCAirGrab",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 395 ), ExtResource( 396 ) ],
+"loop": true,
+"name": "KCAirGrab2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 400 ), ExtResource( 401 ), ExtResource( 402 ) ],
+"loop": true,
+"name": "KCAirGrab3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 214 ), ExtResource( 212 ), ExtResource( 212 ), ExtResource( 216 ), ExtResource( 215 ), ExtResource( 213 ) ],
+"loop": true,
+"name": "KCAirHook",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 281 ), ExtResource( 282 ), ExtResource( 277 ), ExtResource( 278 ), ExtResource( 280 ), ExtResource( 276 ), ExtResource( 279 ) ],
+"loop": true,
+"name": "KCAirJab",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 222 ), ExtResource( 222 ), ExtResource( 218 ), ExtResource( 220 ), ExtResource( 220 ), ExtResource( 223 ), ExtResource( 219 ), ExtResource( 221 ) ],
+"loop": true,
+"name": "KCArmorPunch",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 362 ), ExtResource( 361 ), ExtResource( 361 ), ExtResource( 360 ) ],
+"loop": true,
+"name": "KCCharge",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 287 ), ExtResource( 286 ), ExtResource( 288 ), ExtResource( 283 ), ExtResource( 289 ), ExtResource( 284 ), ExtResource( 285 ), ExtResource( 290 ), ExtResource( 291 ) ],
+"loop": true,
+"name": "KCComet",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 227 ), ExtResource( 227 ), ExtResource( 226 ), ExtResource( 225 ), ExtResource( 228 ) ],
+"loop": true,
+"name": "KCDivekick",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 380 ), ExtResource( 385 ), ExtResource( 374 ), ExtResource( 374 ), ExtResource( 374 ), ExtResource( 374 ), ExtResource( 381 ), ExtResource( 384 ), ExtResource( 382 ), ExtResource( 378 ), ExtResource( 375 ), ExtResource( 383 ), ExtResource( 376 ), ExtResource( 381 ), ExtResource( 384 ), ExtResource( 382 ), ExtResource( 378 ), ExtResource( 375 ), ExtResource( 383 ), ExtResource( 376 ), ExtResource( 377 ), ExtResource( 377 ), ExtResource( 379 ) ],
+"loop": true,
+"name": "KCDoppioRush",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 197 ), ExtResource( 197 ), ExtResource( 197 ), ExtResource( 196 ), ExtResource( 198 ), ExtResource( 199 ), ExtResource( 200 ), ExtResource( 201 ), ExtResource( 202 ), ExtResource( 203 ) ],
+"loop": true,
+"name": "KCKickFlip",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 295 ), ExtResource( 298 ), ExtResource( 293 ), ExtResource( 294 ), ExtResource( 292 ), ExtResource( 297 ) ],
+"loop": true,
+"name": "KCKnife",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 231 ), ExtResource( 230 ), ExtResource( 232 ) ],
+"loop": true,
+"name": "KCLand",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 83 ), ExtResource( 83 ), ExtResource( 85 ), ExtResource( 84 ), ExtResource( 81 ) ],
+"loop": true,
+"name": "KCPunch",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 195 ), ExtResource( 189 ), ExtResource( 189 ), ExtResource( 190 ), ExtResource( 194 ), ExtResource( 191 ), ExtResource( 192 ), ExtResource( 193 ) ],
+"loop": true,
+"name": "KCPunch2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 234 ), ExtResource( 234 ), ExtResource( 240 ), ExtResource( 235 ), ExtResource( 236 ), ExtResource( 237 ), ExtResource( 238 ), ExtResource( 239 ), ExtResource( 241 ), ExtResource( 233 ), ExtResource( 242 ) ],
+"loop": true,
+"name": "KCRage",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 352 ), ExtResource( 352 ), ExtResource( 352 ), ExtResource( 356 ), ExtResource( 353 ), ExtResource( 354 ), ExtResource( 355 ) ],
+"loop": true,
+"name": "KCRock",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 209 ), ExtResource( 204 ), ExtResource( 204 ), ExtResource( 205 ), ExtResource( 208 ), ExtResource( 206 ), ExtResource( 206 ), ExtResource( 207 ) ],
+"loop": true,
+"name": "KCStandingDivekick",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 182 ), ExtResource( 182 ), ExtResource( 185 ), ExtResource( 183 ), ExtResource( 186 ), ExtResource( 181 ), ExtResource( 184 ) ],
+"loop": true,
+"name": "KCUppercut",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 25 ) ],
+"loop": true,
+"name": "Knockdown",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 43 ) ],
+"loop": true,
+"name": "Landing",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 270 ), ExtResource( 32 ), ExtResource( 41 ), ExtResource( 268 ), ExtResource( 268 ), ExtResource( 269 ), ExtResource( 40 ) ],
+"loop": true,
+"name": "LowKick",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 49 ) ],
+"loop": true,
+"name": "ParryHigh",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 48 ) ],
+"loop": true,
+"name": "ParryLow",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 266 ) ],
+"loop": true,
+"name": "Pose",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 51 ), ExtResource( 272 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 271 ), ExtResource( 273 ) ],
+"loop": true,
+"name": "Stomp",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 77 ), ExtResource( 78 ) ],
+"loop": true,
+"name": "Summon",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 146 ), ExtResource( 149 ), ExtResource( 26 ) ],
+"loop": true,
+"name": "SuperJump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 147 ), ExtResource( 148 ) ],
+"loop": true,
+"name": "SuperRun",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 135 ), ExtResource( 136 ), ExtResource( 133 ), ExtResource( 133 ), ExtResource( 133 ), ExtResource( 137 ), ExtResource( 137 ), ExtResource( 134 ) ],
+"loop": true,
+"name": "Tackle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 45 ) ],
+"loop": true,
+"name": "ThrowTech",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 158 ), ExtResource( 160 ), ExtResource( 159 ), ExtResource( 161 ) ],
+"loop": true,
+"name": "UpSummon",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 258 ), ExtResource( 259 ), ExtResource( 257 ), ExtResource( 260 ) ],
+"loop": true,
+"name": "Wait",
+"speed": 30.0
+}, {
+"frames": [ ExtResource( 262 ), ExtResource( 265 ), ExtResource( 263 ), ExtResource( 264 ) ],
+"loop": true,
+"name": "Walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 38 ) ],
+"loop": true,
+"name": "WallSlam",
+"speed": 5.0
+} ]
+
+[node name="Diavolo" instance=ExtResource( 1 )]
+material = SubResource( 1 )
+script = ExtResource( 7 )
+gravity = "1"
+ground_friction = "3"
+max_ground_speed = "9"
+max_air_speed = "10"
+max_fall_speed = "15"
+num_air_movements = 1
+character_portrait = ExtResource( 9 )
+character_portrait2 = ExtResource( 415 )
+player_info_scene = ExtResource( 10 )
+player_extra_params_scene = ExtResource( 8 )
+damage_taken_modifier = "1.4"
+num_feints = 1
+use_extra_color_1 = true
+extra_color_1 = Color( 0.443137, 0.0745098, 0.0666667, 1 )
+
+[node name="Sprite" parent="Flip" index="0"]
+material = SubResource( 2 )
+frames = SubResource( 3 )
+animation = "GutJab"
+frame = 3
+speed_scale = 4.0
+
+[node name="timeResumes" type="AudioStreamPlayer" parent="Sounds" index="11"]
+stream = ExtResource( 65 )
+
+[node name="timeSkip" type="AudioStreamPlayer" parent="Sounds" index="12"]
+stream = ExtResource( 67 )
+volume_db = -9.0
+
+[node name="timeSkip2" type="AudioStreamPlayer" parent="Sounds" index="13"]
+stream = ExtResource( 67 )
+volume_db = -31.733
+pitch_scale = 1.36
+
+[node name="standOut" type="AudioStreamPlayer" parent="Sounds" index="14"]
+stream = ExtResource( 128 )
+volume_db = -9.0
+
+[node name="standOut2" type="AudioStreamPlayer" parent="Sounds" index="15"]
+stream = ExtResource( 245 )
+volume_db = -9.0
+
+[node name="standIn" type="AudioStreamPlayer" parent="Sounds" index="16"]
+stream = ExtResource( 129 )
+volume_db = -9.0
+
+[node name="blast" type="AudioStreamPlayer" parent="Sounds" index="17"]
+stream = ExtResource( 243 )
+volume_db = -2.008
+pitch_scale = 1.44
+
+[node name="Impale" type="AudioStreamPlayer" parent="Sounds" index="18"]
+stream = ExtResource( 244 )
+volume_db = -2.008
+
+[node name="Intro2" type="AudioStreamPlayer" parent="Sounds" index="19"]
+stream = ExtResource( 267 )
+volume_db = -8.008
+pitch_scale = 0.72
+
+[node name="guh" type="AudioStreamPlayer" parent="Sounds" index="20"]
+stream = ExtResource( 350 )
+volume_db = -15.117
+
+[node name="CollisionBox" parent="." index="2"]
+width = 7
+
+[node name="Start" parent="StateMachine" index="0"]
+script = ExtResource( 319 )
+__meta__ = {
+"_editor_description_": ""
+}
+sprite_animation = "Intro"
+anim_length = 120
+sprite_anim_length = 30
+ticks_per_frame = 4
+timed_particle_scene = ExtResource( 336 )
+timed_particle_position = Vector2( -15, -15 )
+timed_spawn_particle_tick = 49
+sfx = ExtResource( 335 )
+sfx_tick = 10
+sfx_volume = -6.0
+interrupt_into_string = "Grounded
+Aerial
+Jump"
+change_stance_to = "Intro"
+sfx2 = ExtResource( 412 )
+sfx3 = ExtResource( 411 )
+
+[node name="Roll" parent="StateMachine" index="4"]
+show_in_menu = false
+
+[node name="Wait" parent="StateMachine" index="8"]
+script = ExtResource( 256 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Burst" parent="StateMachine" index="9"]
+show_in_menu = false
+
+[node name="Getup" parent="StateMachine" index="18"]
+sprite_animation = "Blur"
+anim_length = 2
+sprite_anim_length = 1
+ticks_per_frame = 99
+
+[node name="TechRoll" parent="StateMachine" index="19"]
+apply_fric = true
+show_in_menu = false
+
+[node name="DashForward" parent="StateMachine" index="21"]
+velocity_forward_meter_gain_multiplier = "1"
+
+[node name="ChargeDashForward" parent="StateMachine" index="22"]
+show_in_menu = false
+
+[node name="DashStartup" parent="StateMachine" index="25"]
+show_in_menu = false
+
+[node name="ChargeDash" parent="StateMachine" index="27"]
+show_in_menu = false
+
+[node name="SuperJump" parent="StateMachine" index="28"]
+show_in_menu = false
+
+[node name="DoubleJump" parent="StateMachine" index="29"]
+show_in_menu = false
+
+[node name="AirDash" parent="StateMachine" index="30"]
+show_in_menu = false
+
+[node name="WhiffInstantCancel" parent="StateMachine" index="32"]
+script = ExtResource( 254 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Hold" parent="StateMachine" index="38"]
+start_throw_pos_x = 6
+start_throw_pos_y = 4
+
+[node name="Grab" parent="StateMachine" index="40"]
+sprite_animation = "Grab"
+anim_length = 12
+sprite_anim_length = 2
+ticks_per_frame = 4
+
+[node name="ThrowBox" parent="StateMachine/Grab" index="0"]
+visible = false
+
+[node name="ThrowBox" parent="StateMachine/AirGrab" index="0"]
+visible = false
+
+[node name="ForwardThrow" parent="StateMachine" index="42"]
+script = ExtResource( 410 )
+__meta__ = {
+"_editor_description_": ""
+}
+ticks_per_frame = 8
+start_throw_pos_x = 8
+start_throw_pos_y = 6
+release_throw_pos_x = 20
+release_throw_pos_y = -4
+knockback = "1"
+dir_y = "-0.3"
+knockdown_extends_hitstun = true
+damage = 40
+damage_in_combo = 10
+hard_knockdown = true
+force_grounded = true
+wall_slam = true
+di_modifier = "0.05"
+
+[node name="KCPunch" type="Node2D" parent="StateMachine" index="47"]
+script = ExtResource( 86 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+sprite_animation = "KCPunch"
+anim_length = 11
+sprite_anim_length = 5
+ticks_per_frame = 2
+enter_force_dir_x = "1"
+enter_force_speed = "0.4"
+title = "King's Fist"
+show_in_menu = false
+type = 1
+button_texture = ExtResource( 95 )
+interrupt_from_string = "Grounded
+GroundedAttack"
+interrupt_into_string = "Grounded"
+hit_cancel_into_string = "Grounded
+GroundedAttack"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/KCPunch" index="0"]
+z_index = 1000
+script = ExtResource( 5 )
+x = 10
+y = -16
+width = 40
+damage = 60
+minimum_damage = 20
+hitstun_ticks = 14
+hitlag_ticks = 8
+victim_hitlag = 8
+di_modifier = "0.8"
+screenshake_amount = 6
+screenshake_frames = 3
+dir_y = "-0.2"
+knockback = "12"
+block_pushback_modifier = "2.0"
+pushback_x = "1"
+start_tick = 8
+active_ticks = 2
+
+[node name="GutJab" type="Node2D" parent="StateMachine" index="48"]
+script = ExtResource( 3 )
+apply_forces = true
+sprite_animation = "GutJab"
+anim_length = 15
+sprite_anim_length = 6
+enter_force_dir_x = "1"
+enter_force_speed = "2"
+title = "Jab"
+type = 1
+button_texture = ExtResource( 4 )
+iasa_at = 12
+iasa_on_hit = 6
+interrupt_from_string = "Grounded
+GroundedAttack"
+interrupt_into_string = "Grounded"
+hit_cancel_into_string = "Grounded
+GroundedAttack"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/GutJab" index="0"]
+z_index = 1000
+script = ExtResource( 5 )
+x = 15
+y = -18
+width = 13
+height = 6
+damage = 22
+minimum_damage = 9
+hitstun_ticks = 10
+victim_hitlag = 4
+di_modifier = "0.2"
+sdi_modifier = "0.5"
+screenshake_amount = 0
+knockback = "4"
+pushback_x = "0.3"
+start_tick = 5
+active_ticks = 2
+
+[node name="AirKick" type="Node2D" parent="StateMachine" index="49"]
+script = ExtResource( 3 )
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "AirKick"
+anim_length = 15
+sprite_anim_length = 2
+ticks_per_frame = 7
+enter_force_dir_x = "1"
+enter_force_speed = "0"
+title = "Kick"
+type = 1
+button_texture = ExtResource( 87 )
+air_type = 1
+land_cancel = true
+landing_recovery = 7
+min_land_cancel_frame = 0
+interrupt_from_string = "Aerial
+AerialAttack"
+interrupt_into_string = "Aerial"
+hit_cancel_into_string = "Aerial
+AerialAttack"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/AirKick" index="0"]
+z_index = 1000
+script = ExtResource( 5 )
+x = 5
+y = -12
+width = 11
+height = 16
+damage = 50
+minimum_damage = 8
+hitstun_ticks = 24
+victim_hitlag = 4
+di_modifier = "0.2"
+sdi_modifier = "0.2"
+screenshake_amount = 0
+dir_y = "1.0"
+knockback = "12"
+pushback_x = "0.3"
+minimum_grounded_frames = 20
+ground_bounce = false
+start_tick = 8
+
+[node name="AirKnee" type="Node2D" parent="StateMachine" index="50"]
+script = ExtResource( 3 )
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "AirKnee"
+anim_length = 10
+sprite_anim_length = 2
+ticks_per_frame = 5
+force_dir_y = "-1"
+force_speed = "0.2"
+enter_force_dir_x = "1"
+enter_force_speed = "0.1"
+title = "Knee"
+type = 1
+button_texture = ExtResource( 88 )
+air_type = 1
+land_cancel = true
+landing_recovery = 5
+min_land_cancel_frame = 0
+interrupt_from_string = "Aerial
+AerialAttack"
+interrupt_into_string = "Aerial"
+hit_cancel_into_string = "Aerial
+AerialAttack"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/AirKnee" index="0"]
+z_index = 1000
+script = ExtResource( 5 )
+x = 2
+y = -18
+width = 10
+height = 6
+damage = 60
+minimum_damage = 50
+hitstun_ticks = 24
+victim_hitlag = 7
+di_modifier = "0.1"
+sdi_modifier = "0.1"
+screenshake_amount = 0
+knockback = "3"
+pushback_x = "0.3"
+start_tick = 6
+active_ticks = 2
+
+[node name="HighHook" type="Node2D" parent="StateMachine" index="51"]
+script = ExtResource( 3 )
+apply_forces = true
+sprite_animation = "HighHook"
+anim_length = 14
+sprite_anim_length = 6
+ticks_per_frame = 2
+force_dir_x = "1"
+force_speed = "3"
+force_tick = 6
+enter_force_dir_x = "1"
+enter_force_speed = "1"
+title = "Hook"
+type = 1
+button_texture = ExtResource( 90 )
+iasa_at = 13
+iasa_on_hit = 11
+interrupt_from_string = "Grounded
+GroundedAttack"
+interrupt_into_string = "Grounded"
+hit_cancel_into_string = "Grounded
+GroundedAttack"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/HighHook" index="0"]
+z_index = 1000
+script = ExtResource( 5 )
+x = 12
+y = -10
+width = 13
+height = 7
+damage = 50
+minimum_damage = 25
+hitstun_ticks = 14
+hitlag_ticks = 5
+victim_hitlag = 5
+di_modifier = "0.3"
+hit_height = 0
+screenshake_amount = 0
+knockback = "4"
+pushback_x = "0.3"
+start_tick = 7
+active_ticks = 2
+
+[node name="LowKick" type="Node2D" parent="StateMachine" index="52"]
+script = ExtResource( 6 )
+apply_forces = true
+apply_fric = true
+sprite_animation = "LowKick"
+anim_length = 17
+sprite_anim_length = 7
+ticks_per_frame = 2
+force_dir_x = "1"
+force_speed = "11"
+force_tick = 7
+enter_force_dir_x = "1"
+enter_force_speed = "3.3"
+title = "Kick"
+type = 1
+button_texture = ExtResource( 87 )
+iasa_at = 17
+iasa_on_hit = 13
+interrupt_from_string = "Grounded
+GroundedAttack"
+interrupt_into_string = "Grounded"
+hit_cancel_into_string = "Grounded
+GroundedAttack"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/LowKick" index="0"]
+z_index = 1000
+script = ExtResource( 5 )
+x = 8
+y = -10
+width = 12
+height = 7
+damage = 60
+minimum_damage = 30
+hitstun_ticks = 26
+hitlag_ticks = 6
+victim_hitlag = 6
+hit_height = 2
+knockback = "10"
+start_tick = 7
+active_ticks = 6
+
+[node name="Stomp" type="Node2D" parent="StateMachine" index="53"]
+script = ExtResource( 6 )
+apply_forces = true
+apply_fric = true
+sprite_animation = "Stomp"
+anim_length = 15
+sprite_anim_length = 6
+ticks_per_frame = 2
+enter_force_dir_x = "1"
+enter_force_speed = "1.3"
+state_screenshake_tick = 5
+state_screenshake_dir = Vector2( 1, 0 )
+state_screenshake_length = 0.2
+state_screenshake_amount = 3
+title = "Stomp"
+type = 1
+button_texture = ExtResource( 91 )
+iasa_at = 15
+iasa_on_hit = 11
+interrupt_from_string = "Grounded
+GroundedAttack"
+interrupt_into_string = "Grounded"
+hit_cancel_into_string = "Grounded
+GroundedAttack"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/Stomp" index="0"]
+z_index = 1000
+script = ExtResource( 5 )
+x = 5
+y = -4
+width = 10
+height = 7
+damage = 70
+minimum_damage = 30
+hitstun_ticks = 10
+victim_hitlag = 8
+hits_otg = true
+hits_vs_aerial = false
+di_modifier = "0.2"
+sdi_modifier = "0.3"
+meter_gain_modifier = "2.0"
+ignore_armor = true
+hit_height = 2
+dir_y = "0"
+knockback = "0.1"
+pushback_x = "2.0"
+knockdown = true
+ground_bounce = false
+start_tick = 7
+active_ticks = 4
+
+[node name="Summon" type="Node2D" parent="StateMachine" index="54"]
+script = ExtResource( 11 )
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "Desummon"
+anim_length = 15
+sprite_anim_length = 4
+ticks_per_frame = 4
+title = "K. Crimson"
+type = 2
+button_texture = ExtResource( 92 )
+air_type = 2
+burst_cancellable = false
+interrupt_from_string = "Grounded
+Aerial
+AerialAttack
+GroundedAttack"
+interrupt_into_string = "Grounded
+Aerial
+AerialAttack
+GroundedAttack"
+hit_cancel_into_string = "Grounded
+Aerial
+AerialAttack
+GroundedAttack"
+
+[node name="Desummon" type="Node2D" parent="StateMachine" index="55"]
+script = ExtResource( 44 )
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "Desummon"
+anim_length = 12
+sprite_anim_length = 4
+ticks_per_frame = 3
+title = "Desummon"
+type = 2
+button_texture = ExtResource( 89 )
+air_type = 2
+interrupt_from_string = "Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+
+[node name="TimeSkip1" type="Node2D" parent="StateMachine" index="56"]
+process_priority = 9999999
+script = ExtResource( 12 )
+apply_forces = true
+apply_grav = true
+sprite_animation = "Desummon"
+anim_length = 17
+sprite_anim_length = 2
+state_screenshake_tick = 1
+state_screenshake_dir = Vector2( 5, 1 )
+state_screenshake_length = 0.101
+title = "Skip (Free)"
+button_texture = ExtResource( 93 )
+air_type = 2
+uses_air_movement = true
+burst_cancellable = false
+burstable = false
+self_hit_cancellable = false
+self_interruptable = false
+instant_cancellable = false
+interrupt_from_string = "Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+Aerial"
+no_collision_start_frame = 1
+no_collision_end_frame = 2
+
+[node name="TimeSkipSuper" type="Node2D" parent="StateMachine" index="57"]
+process_priority = 9999999
+script = ExtResource( 59 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_grav = true
+fallback_state = "TimeSkipExit"
+sprite_animation = "Blur"
+anim_length = 65
+sprite_anim_length = 1
+state_screenshake_tick = 0
+state_screenshake_dir = Vector2( 1.5, 1 )
+state_screenshake_length = 0.4
+state_screenshake_amount = 30
+title = "Skip Time"
+type = 3
+data_ui_scene = ExtResource( 60 )
+button_texture = ExtResource( 97 )
+air_type = 2
+iasa_at = 1
+busy_interrupt_type = 1
+burst_cancellable = false
+burstable = false
+self_hit_cancellable = false
+self_interruptable = false
+instant_cancellable = false
+interrupt_from_string = "Grounded
+Aerial
+AerialAttack
+GroundedAttack
+WhiffCancel"
+interrupt_into_string = "Grounded
+Aerial"
+allowed_stances_string = "All"
+apply_pushback = false
+beats_backdash = true
+no_collision_start_frame = 0
+no_collision_end_frame = 2
+
+[node name="TimeSkipBurst" type="Node2D" parent="StateMachine" index="58"]
+process_priority = 9999999
+script = ExtResource( 130 )
+__meta__ = {
+"_editor_description_": ""
+}
+reset_momentum = true
+sprite_animation = "Burst"
+anim_length = 30
+particle_scene = ExtResource( 131 )
+particle_position = Vector2( 0, -16 )
+spawn_particle_on_enter = true
+type = 3
+button_texture = ExtResource( 132 )
+air_type = 2
+dynamic_iasa = false
+busy_interrupt_type = 2
+burst_cancellable = false
+instant_cancellable = false
+can_feint_if_possible = false
+interrupt_from_string = "BusyHurt
+Burst"
+interrupt_into_string = "Grounded
+Aerial"
+allowed_stances_string = "All"
+change_stance_to = "Normal"
+release_opponent_on_startup = true
+
+[node name="TimeEraseSuper" type="Node2D" parent="StateMachine" index="59"]
+process_priority = 9999999
+script = ExtResource( 63 )
+__meta__ = {
+"_editor_description_": ""
+}
+sprite_animation = "Summon"
+anim_length = 30
+sprite_anim_length = 1
+state_screenshake_tick = 12
+state_screenshake_dir = Vector2( 1, 1 )
+state_screenshake_length = 0.7
+state_screenshake_amount = 80
+enter_sfx = ExtResource( 64 )
+enter_sfx_volume = -3.0
+title = "Erase Time"
+type = 3
+button_texture = ExtResource( 99 )
+air_type = 2
+dynamic_iasa = false
+end_feint = false
+busy_interrupt_type = 1
+burst_cancellable = false
+burstable = false
+self_hit_cancellable = false
+self_interruptable = false
+reversible = false
+instant_cancellable = false
+can_feint_if_possible = false
+interrupt_from_string = "Grounded
+Aerial
+AerialAttack
+GroundedAttack
+OTG
+Jump
+Getup
+BusyHurt
+Burst
+BusyNormal
+WhiffCancel"
+allowed_stances_string = "All"
+apply_pushback = false
+beats_backdash = true
+no_collision_start_frame = 0
+no_collision_end_frame = 2
+super_level = 2
+supers_used = 3
+super_freeze_ticks = 45
+
+[node name="TimeEraseEnd" type="Node2D" parent="StateMachine" index="60"]
+process_priority = 9999999
+script = ExtResource( 66 )
+__meta__ = {
+"_editor_description_": ""
+}
+sprite_animation = "Desummon"
+sprite_anim_length = 1
+state_screenshake_tick = 12
+state_screenshake_dir = Vector2( 1, 1 )
+state_screenshake_length = 0.2
+state_screenshake_amount = 150
+enter_sfx_volume = -3.0
+sfx_tick = -1
+title = "Resume"
+type = 3
+button_texture = ExtResource( 101 )
+air_type = 2
+burst_cancellable = false
+burstable = false
+self_hit_cancellable = false
+self_interruptable = false
+instant_cancellable = false
+interrupt_from_string = "Grounded
+Aerial
+AerialAttack
+GroundedAttack
+OTG
+Jump
+Getup
+"
+allowed_stances_string = "All"
+apply_pushback = false
+beats_backdash = true
+no_collision_start_frame = 0
+no_collision_end_frame = 2
+
+[node name="CounterSuper" type="Node2D" parent="StateMachine" index="61"]
+script = ExtResource( 102 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "CounterStart"
+anim_length = 56
+sprite_anim_length = 14
+ticks_per_frame = 4
+title = "End of the Line"
+type = 3
+button_texture = ExtResource( 109 )
+air_type = 2
+interrupt_from_string = "Grounded
+Aerial
+AerialAttack
+GroundedAttack"
+interrupt_into_string = "Grounded
+Aerial
+AerialAttack
+GroundedAttack"
+hit_cancel_into_string = "Grounded
+Aerial
+AerialAttack
+GroundedAttack"
+
+[node name="CounterExecute" type="Node2D" parent="StateMachine" index="62"]
+script = ExtResource( 114 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+reset_y_momentum = true
+apply_custom_x_fric = true
+custom_x_fric = "0.1"
+sprite_animation = "CounterExecute"
+anim_length = 60
+sprite_anim_length = 12
+ticks_per_frame = 3
+enter_sfx = ExtResource( 127 )
+enter_sfx_volume = -12.0
+show_in_menu = false
+type = 3
+air_type = 2
+apply_pushback = false
+
+[node name="CounterExecute2" type="Node2D" parent="StateMachine" index="63"]
+script = ExtResource( 113 )
+__meta__ = {
+"_editor_description_": ""
+}
+reset_y_momentum = true
+apply_custom_x_fric = true
+custom_x_fric = "0.1"
+sprite_animation = "CounterExecute2"
+anim_length = 60
+sprite_anim_length = 12
+ticks_per_frame = 3
+enter_sfx = ExtResource( 126 )
+enter_sfx_volume = -5.0
+sfx_volume = -10.0
+show_in_menu = false
+type = 3
+air_type = 2
+apply_pushback = false
+
+[node name="CounterExecute3" type="Node2D" parent="StateMachine" index="64"]
+script = ExtResource( 116 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+reset_y_momentum = true
+sprite_animation = "CounterExecute3"
+anim_length = 60
+sprite_anim_length = 40
+ticks_per_frame = 2
+force_dir_x = "0"
+enter_force_dir_x = "1"
+enter_force_speed = "5"
+particle_scene = ExtResource( 413 )
+spawn_particle_on_enter = true
+state_screenshake_tick = 0
+state_screenshake_dir = Vector2( 1, 0.75 )
+state_screenshake_length = 0.4
+state_screenshake_amount = 90
+enter_sfx = ExtResource( 125 )
+enter_sfx_volume = -5.0
+sfx_volume = -10.0
+force_same_direction_as_previous_state = true
+show_in_menu = false
+air_type = 2
+no_collision_start_frame = 0
+no_collision_end_frame = 60
+can_be_counterhit = false
+release = true
+release_frame = 37
+start_throw_pos_x = 8
+start_throw_pos_y = -4
+release_throw_pos_x = 20
+release_throw_pos_y = -5
+hitstun_ticks = 90
+knockback = "50"
+dir_x = "3.0"
+dir_y = "-0.4"
+damage = 550
+ground_bounce = false
+screenshake_amount = 30
+screenshake_frames = 8
+hard_knockdown = true
+force_grounded = true
+wall_slam = true
+di_modifier = "0.1"
+release_sfx = ExtResource( 124 )
+release_sfx_volume = -2.0
+
+[node name="PunchCommand" type="Node2D" parent="StateMachine" index="65"]
+script = ExtResource( 13 )
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "Summon"
+anim_length = 7
+sprite_anim_length = 2
+ticks_per_frame = 3
+title = "King's Court"
+type = 2
+button_texture = ExtResource( 94 )
+air_type = 2
+interrupt_from_string = "Grounded
+Aerial
+AerialAttack
+GroundedAttack"
+interrupt_into_string = "Grounded
+Aerial
+AerialAttack
+GroundedAttack"
+hit_cancel_into_string = "Grounded
+Aerial
+AerialAttack
+GroundedAttack"
+
+[node name="NudgeCommand" type="Node2D" parent="StateMachine" index="66"]
+script = ExtResource( 17 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "Summon"
+anim_length = 13
+sprite_anim_length = 4
+ticks_per_frame = 3
+title = "Adjust"
+type = 2
+data_ui_scene = ExtResource( 21 )
+button_texture = ExtResource( 23 )
+air_type = 2
+interrupt_from_string = "Grounded
+Aerial
+AerialAttack
+GroundedAttack"
+interrupt_into_string = "Grounded
+Aerial
+AerialAttack
+GroundedAttack"
+hit_cancel_into_string = "Grounded
+Aerial
+AerialAttack
+GroundedAttack"
+
+[node name="ChopCommand" type="Node2D" parent="StateMachine" index="67"]
+script = ExtResource( 14 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "Summon"
+anim_length = 7
+sprite_anim_length = 2
+ticks_per_frame = 3
+title = "Moonchild"
+type = 2
+button_texture = ExtResource( 96 )
+air_type = 2
+interrupt_from_string = "Grounded
+Aerial
+AerialAttack
+GroundedAttack"
+interrupt_into_string = "Grounded
+Aerial
+AerialAttack
+GroundedAttack"
+hit_cancel_into_string = "Grounded
+Aerial
+AerialAttack
+GroundedAttack"
+
+[node name="ChopCommand2" type="Node2D" parent="StateMachine" index="68"]
+script = ExtResource( 16 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "Summon"
+anim_length = 7
+sprite_anim_length = 2
+ticks_per_frame = 3
+title = "Groon"
+type = 2
+button_texture = ExtResource( 100 )
+air_type = 2
+interrupt_from_string = "Grounded
+Aerial
+AerialAttack
+GroundedAttack"
+interrupt_into_string = "Grounded
+Aerial
+AerialAttack
+GroundedAttack"
+hit_cancel_into_string = "Grounded
+Aerial
+AerialAttack
+GroundedAttack"
+
+[node name="GroundPunchCommand" type="Node2D" parent="StateMachine" index="69"]
+script = ExtResource( 15 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "Summon"
+anim_length = 7
+sprite_anim_length = 2
+ticks_per_frame = 3
+title = "Fracture"
+type = 2
+button_texture = ExtResource( 98 )
+air_type = 2
+interrupt_from_string = "Grounded
+Aerial
+AerialAttack
+GroundedAttack"
+interrupt_into_string = "Grounded
+Aerial
+AerialAttack
+GroundedAttack"
+hit_cancel_into_string = "Grounded
+Aerial
+AerialAttack
+GroundedAttack"
+
+[node name="RushCommand" type="Node2D" parent="StateMachine" index="70"]
+script = ExtResource( 351 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "Summon"
+anim_length = 7
+sprite_anim_length = 2
+ticks_per_frame = 3
+title = "Stand Rush"
+type = 3
+button_texture = ExtResource( 164 )
+air_type = 2
+interrupt_from_string = "Grounded
+Aerial
+AerialAttack
+GroundedAttack"
+interrupt_into_string = "Grounded
+Aerial
+AerialAttack
+GroundedAttack"
+hit_cancel_into_string = "Grounded
+Aerial
+AerialAttack
+GroundedAttack"
+super_level = 3
+super_freeze_ticks = 8
+
+[node name="AirGrabCommand" type="Node2D" parent="StateMachine" index="71"]
+script = ExtResource( 162 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "UpSummon"
+anim_length = 14
+sprite_anim_length = 4
+ticks_per_frame = 2
+title = "Fallen Angel"
+type = 2
+button_texture = ExtResource( 171 )
+air_type = 2
+interrupt_from_string = "Grounded
+Aerial
+AerialAttack
+GroundedAttack"
+interrupt_into_string = "Grounded
+Aerial
+AerialAttack
+GroundedAttack"
+hit_cancel_into_string = "Grounded
+Aerial
+AerialAttack
+GroundedAttack"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/AirGrabCommand" index="0"]
+z_index = 1000
+script = ExtResource( 253 )
+__meta__ = {
+"_editor_description_": ""
+}
+y = 99999
+width = 0
+height = 0
+can_draw = false
+damage = 175
+minimum_damage = 175
+hitstun_ticks = 100
+hitlag_ticks = 2
+victim_hitlag = 90
+damage_proration = 3
+cancellable = false
+hits_otg = true
+di_modifier = "4.0"
+sdi_modifier = "0"
+meter_gain_modifier = "0"
+ignore_armor = true
+can_clash = false
+screenshake_amount = 0
+screenshake_frames = 0
+camera_bump_dir = Vector2( 1, 1 )
+rumble = false
+dir_x = "0"
+dir_y = "0"
+knockback = "0"
+block_pushback_modifier = "0"
+pushback_x = "0"
+knockdown = true
+disable_collision = false
+ground_bounce = false
+active_ticks = 999
+always_on = true
+
+[node name="TackleCommand" type="Node2D" parent="StateMachine" index="72"]
+script = ExtResource( 138 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+reset_x_momentum = true
+apply_custom_x_fric = true
+custom_x_fric = "0.3"
+sprite_animation = "Tackle"
+anim_length = 18
+sprite_anim_length = 8
+ticks_per_frame = 2
+force_dir_x = "1.0"
+force_speed = "52"
+force_tick = 11
+enter_force_dir_x = "1.0"
+enter_force_speed = "6"
+title = "21 Century"
+type = 2
+button_texture = ExtResource( 152 )
+can_feint_if_possible = false
+interrupt_from_string = "Grounded
+GroundedAttack"
+interrupt_into_string = "Grounded
+Aerial
+AerialAttack
+GroundedAttack"
+hit_cancel_into_string = "Grounded
+Aerial
+AerialAttack
+GroundedAttack"
+beats_backdash = true
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/TackleCommand" index="0"]
+z_index = 1000
+script = ExtResource( 5 )
+x = 7
+y = -11
+width = 9
+height = 11
+damage = 40
+minimum_damage = 10
+hitstun_ticks = 12
+hitlag_ticks = 2
+victim_hitlag = 2
+damage_proration = -1
+increment_combo = false
+di_modifier = "0"
+sdi_modifier = "0"
+meter_gain_modifier = "2.0"
+beats_grab = false
+dir_y = "0"
+knockback = "5"
+block_pushback_modifier = "2.0"
+pushback_x = "0.1"
+knockdown = true
+disable_collision = false
+air_ground_bounce = true
+start_tick = 11
+active_ticks = 4
+
+[node name="CounterEnd" type="Node2D" parent="StateMachine" index="73"]
+script = ExtResource( 163 )
+reset_momentum = true
+sprite_animation = "BasicCounterEnd"
+anim_length = 999
+sprite_anim_length = 4
+ticks_per_frame = 5
+loop_animation = true
+absolute_loop = true
+show_in_menu = false
+iasa_at = 90
+update_facing_on_exit = false
+dynamic_iasa = false
+end_feint = false
+usable_from_whiff_cancel_if_possible = false
+burst_cancellable = false
+burstable = false
+self_hit_cancellable = false
+self_interruptable = false
+reversible = false
+instant_cancellable = false
+can_feint_if_possible = false
+selectable = false
+interrupt_from_string = "GroundedIdle
+Grounded"
+interrupt_into_string = "Grounded
+Aerial"
+apply_pushback = false
+no_collision_start_frame = 0
+no_collision_end_frame = 40
+
+[node name="GrabCounter" type="Node2D" parent="StateMachine" index="74"]
+script = ExtResource( 177 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "GrabCounter"
+anim_length = 20
+sprite_anim_length = 8
+ticks_per_frame = 4
+title = "Forementera"
+type = 2
+button_texture = ExtResource( 144 )
+air_type = 2
+iasa_at = 12
+interrupt_from_string = "Grounded
+Aerial
+AerialAttack
+GroundedAttack"
+interrupt_into_string = "Grounded
+Aerial
+AerialAttack
+GroundedAttack"
+hit_cancel_into_string = "Grounded
+Aerial
+AerialAttack
+GroundedAttack"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/GrabCounter" index="0"]
+z_index = 1000
+script = ExtResource( 253 )
+__meta__ = {
+"_editor_description_": ""
+}
+y = 99999
+width = 0
+height = 0
+can_draw = false
+damage = 250
+minimum_damage = 250
+hitstun_ticks = 90
+hitlag_ticks = 2
+victim_hitlag = 90
+damage_proration = 3
+scale_combo = false
+cancellable = false
+increment_combo = false
+hits_otg = true
+di_modifier = "0"
+sdi_modifier = "0"
+meter_gain_modifier = "0"
+ignore_armor = true
+can_clash = false
+screenshake_amount = 0
+screenshake_frames = 0
+camera_bump_dir = Vector2( 1, 1 )
+dir_x = "0.2"
+dir_y = "-1"
+knockback = "2"
+block_pushback_modifier = "0"
+pushback_x = "0"
+grounded_hit_state = "HurtAerial"
+knockdown = true
+hard_knockdown = true
+disable_collision = false
+ground_bounce = false
+active_ticks = 999
+always_on = true
+
+[node name="EpitaphSuper" type="Node2D" parent="StateMachine" index="76"]
+script = ExtResource( 310 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "EPProc"
+anim_length = 10
+sprite_anim_length = 4
+ticks_per_frame = 2
+timed_particle_scene = ExtResource( 313 )
+timed_particle_position = Vector2( 0, -35 )
+timed_spawn_particle_tick = 9
+title = "Epitaph"
+type = 3
+button_texture = ExtResource( 316 )
+air_type = 2
+interrupt_from_string = "Grounded
+Aerial
+AerialAttack
+GroundedAttack"
+interrupt_into_string = "Grounded
+Aerial
+AerialAttack
+GroundedAttack"
+hit_cancel_into_string = "Grounded
+Aerial
+AerialAttack
+GroundedAttack"
+super_level = 2
+super_freeze_ticks = 20
+super_effect = false
+
+[node name="EpitaphDodge" type="Node2D" parent="StateMachine" index="77"]
+script = ExtResource( 311 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+sprite_animation = "EPDodge"
+anim_length = 16
+sprite_anim_length = 4
+enter_force_dir_x = "1"
+enter_force_speed = "4"
+enter_sfx = ExtResource( 312 )
+enter_sfx_volume = -10.0
+title = "Shoudlnt see this"
+show_in_menu = false
+type = 4
+air_type = 2
+end_feint = false
+usable_from_whiff_cancel_if_possible = false
+burst_cancellable = false
+burstable = false
+self_hit_cancellable = false
+self_interruptable = false
+reversible = false
+instant_cancellable = false
+can_feint_if_possible = false
+selectable = false
+apply_pushback = false
+no_collision_start_frame = 0
+no_collision_end_frame = 4
+can_be_counterhit = false
+
+[node name="KCUppercut" type="Node2D" parent="StateMachine" index="78"]
+script = ExtResource( 188 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "KCUppercut"
+anim_length = 21
+sprite_anim_length = 7
+ticks_per_frame = 3
+force_dir_x = "1"
+force_speed = "5"
+force_tick = 7
+enter_force_dir_x = "1"
+enter_force_speed = "2"
+title = "Discipline"
+type = 1
+button_texture = ExtResource( 249 )
+interrupt_from_string = "Grounded
+GroundedAttack"
+interrupt_into_string = "Grounded"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/KCUppercut" index="0"]
+z_index = 1000
+script = ExtResource( 5 )
+__meta__ = {
+"_editor_description_": ""
+}
+x = 41
+y = -50
+width = 26
+height = 28
+damage = 90
+minimum_damage = 45
+hitstun_ticks = 24
+hitlag_ticks = 6
+victim_hitlag = 14
+di_modifier = "1"
+sdi_modifier = "1"
+hit_height = 2
+whiff_sound = ExtResource( 345 )
+hit_sound = ExtResource( 344 )
+dir_x = "0.7"
+knockback = "9"
+pushback_x = "1"
+grounded_hit_state = "HurtAerial"
+knockdown = true
+knockdown_extends_hitstun = false
+start_tick = 10
+active_ticks = 6
+
+[node name="HurtboxState" type="Node2D" parent="StateMachine/KCUppercut" index="1"]
+z_index = 1000
+script = ExtResource( 187 )
+x = -2
+y = -5
+width = 17
+height = 6
+start_tick = 3
+active_ticks = 12
+endless = true
+
+[node name="KCRage" type="Node2D" parent="StateMachine" index="79"]
+script = ExtResource( 188 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "KCRage"
+anim_length = 33
+sprite_anim_length = 11
+ticks_per_frame = 3
+force_dir_x = "0"
+force_speed = "0"
+force_tick = -1
+enter_force_dir_x = "0"
+enter_force_speed = "0"
+title = "Red"
+type = 2
+button_texture = ExtResource( 246 )
+interrupt_from_string = "Grounded
+GroundedAttack"
+interrupt_into_string = "Grounded"
+hit_cancel_into_string = "Grounded
+GroundedAttack"
+hit_cancel_exceptions_string = "KCRage"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/KCRage" index="0"]
+z_index = 1000
+script = ExtResource( 5 )
+x = 2
+y = -12
+width = 35
+height = 18
+damage = 20
+minimum_damage = 6
+chip_damage_modifier = "2"
+hitstun_ticks = 16
+hitlag_ticks = 3
+victim_hitlag = 3
+scale_combo = false
+cancellable = false
+increment_combo = false
+hits_otg = true
+di_modifier = "0"
+sdi_modifier = "0"
+can_clash = false
+beats_grab = false
+hit_height = 2
+dir_x = "0"
+dir_y = "0"
+knockback = "0"
+vacuum = true
+block_pushback_modifier = "0"
+pushback_x = "0"
+knockdown = true
+knockdown_extends_hitstun = false
+start_tick = 13
+active_ticks = 15
+looping = true
+
+[node name="Hitbox2" type="Node2D" parent="StateMachine/KCRage" index="1"]
+z_index = 1000
+script = ExtResource( 5 )
+x = 2
+y = -12
+width = 43
+height = 24
+damage = 50
+minimum_damage = 12
+chip_damage_modifier = "2"
+hitlag_ticks = 12
+victim_hitlag = 12
+hits_otg = true
+di_modifier = "2"
+sdi_modifier = "1"
+can_clash = false
+beats_grab = false
+screenshake_amount = 30
+screenshake_frames = 8
+dir_x = "0.3"
+knockback = "5"
+pushback_x = "1"
+grounded_hit_state = "HurtAerial"
+knockdown = true
+knockdown_extends_hitstun = false
+start_tick = 29
+active_ticks = 1
+loop_active_ticks = 1
+loop_inactive_ticks = 1
+
+[node name="KCRush" type="Node2D" parent="StateMachine" index="80"]
+script = ExtResource( 387 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_fric = true
+apply_grav = true
+reset_momentum = true
+apply_custom_grav = true
+custom_grav = "0.003"
+custom_grav_max_fall_speed = "0.1"
+sprite_animation = "KCDoppioRush"
+anim_length = 48
+sprite_anim_length = 23
+ticks_per_frame = 2
+force_dir_x = "0"
+force_speed = "0"
+force_tick = -1
+enter_force_dir_x = "0"
+enter_force_speed = "0"
+title = "Doppio Rush"
+type = 2
+data_ui_scene = ExtResource( 364 )
+button_texture = ExtResource( 406 )
+air_type = 2
+iasa_on_hit = 46
+dynamic_iasa = false
+interrupt_from_string = "Grounded
+GroundedAttack
+Aerial
+AerialAttack"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "Grounded
+GroundedAttack
+Aerial
+AerialAttack"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/KCRush" index="0"]
+z_index = 1000
+script = ExtResource( 386 )
+__meta__ = {
+"_editor_description_": ""
+}
+x = 8
+y = -16
+width = 16
+height = 11
+damage = 14
+minimum_damage = 2
+chip_damage_modifier = "0.2"
+hitstun_ticks = 16
+hitlag_ticks = 1
+victim_hitlag = 1
+cancellable = false
+di_modifier = "0"
+sdi_modifier = "0"
+can_clash = false
+beats_grab = false
+hit_sound = ExtResource( 388 )
+dir_x = "0"
+dir_y = "0"
+knockback = "0"
+block_pushback_modifier = "0"
+pushback_x = "0"
+knockdown = true
+knockdown_extends_hitstun = false
+disable_collision = false
+start_tick = 11
+active_ticks = 2
+drag_strength = 10
+forceIncCombo = true
+
+[node name="Hitbox3" type="Node2D" parent="StateMachine/KCRush" index="1"]
+z_index = 1000
+script = ExtResource( 386 )
+__meta__ = {
+"_editor_description_": ""
+}
+x = 8
+y = -16
+width = 16
+height = 11
+damage = 14
+minimum_damage = 2
+chip_damage_modifier = "0.2"
+hitstun_ticks = 16
+hitlag_ticks = 1
+victim_hitlag = 1
+scale_combo = false
+cancellable = false
+increment_combo = false
+di_modifier = "0"
+sdi_modifier = "0"
+can_clash = false
+beats_grab = false
+hit_sound = ExtResource( 388 )
+dir_x = "0"
+dir_y = "0"
+knockback = "0"
+block_pushback_modifier = "0"
+pushback_x = "0"
+knockdown_extends_hitstun = false
+disable_collision = false
+start_tick = 13
+active_ticks = 26
+looping = true
+offset_x = 45
+offset_y = -15
+drag_strength = 4.0
+forceIncCombo = true
+
+[node name="Hitbox2" type="Node2D" parent="StateMachine/KCRush" index="2"]
+z_index = 1000
+script = ExtResource( 5 )
+x = 13
+y = -15
+width = 17
+height = 17
+damage = 60
+minimum_damage = 30
+hitstun_ticks = 22
+hitlag_ticks = 6
+victim_hitlag = 6
+di_modifier = "1.3"
+sdi_modifier = "1"
+can_clash = false
+beats_grab = false
+screenshake_amount = 18
+screenshake_frames = 7
+hit_sound = ExtResource( 389 )
+dir_x = "1"
+dir_y = "-0.1"
+knockback = "8"
+pushback_x = "1"
+grounded_hit_state = "HurtAerial"
+knockdown = true
+knockdown_extends_hitstun = false
+start_tick = 43
+active_ticks = 3
+loop_active_ticks = 1
+loop_inactive_ticks = 1
+
+[node name="KCArmoredPunch" type="Node2D" parent="StateMachine" index="81"]
+script = ExtResource( 224 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_fric = true
+apply_grav = true
+sprite_animation = "KCArmorPunch"
+anim_length = 17
+sprite_anim_length = 8
+ticks_per_frame = 2
+force_dir_x = "1"
+force_dir_y = "-0.1"
+force_speed = "20"
+force_tick = 7
+enter_force_dir_x = "-1"
+enter_force_speed = "8"
+title = "Exiles"
+type = 2
+button_texture = ExtResource( 248 )
+landing_recovery = 1
+min_land_cancel_frame = 1
+interrupt_from_string = "Grounded
+GroundedAttack"
+interrupt_into_string = "Grounded"
+hit_cancel_into_string = "Aerial
+AerialAttack"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/KCArmoredPunch" index="0"]
+z_index = 1000
+script = ExtResource( 5 )
+x = 34
+y = -12
+width = 12
+height = 9
+damage = 70
+minimum_damage = 40
+hitstun_ticks = 27
+hitlag_ticks = 7
+victim_hitlag = 7
+di_modifier = "1"
+sdi_modifier = "1"
+hit_sound = ExtResource( 342 )
+dir_x = "1"
+dir_y = "0.1"
+knockback = "11"
+pushback_x = "1"
+knockdown = true
+knockdown_extends_hitstun = false
+start_tick = 11
+active_ticks = 2
+
+[node name="KCAirHook" type="Node2D" parent="StateMachine" index="82"]
+script = ExtResource( 217 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "KCAirHook"
+anim_length = 20
+sprite_anim_length = 6
+ticks_per_frame = 3
+force_dir_x = "1"
+force_speed = "0"
+force_tick = -1
+enter_force_dir_x = "1"
+enter_force_speed = "5"
+title = "Shelter Sky"
+type = 1
+button_texture = ExtResource( 250 )
+air_type = 1
+interrupt_from_string = "Aerial
+AerialAttack"
+interrupt_into_string = "Aerial"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/KCAirHook" index="0"]
+z_index = 1000
+script = ExtResource( 5 )
+x = 32
+y = -7
+width = 32
+height = 23
+damage = 65
+minimum_damage = 30
+hitstun_ticks = 32
+hitlag_ticks = 6
+victim_hitlag = 12
+di_modifier = "1"
+sdi_modifier = "1"
+hit_height = 0
+whiff_sound = ExtResource( 339 )
+hit_sound = ExtResource( 348 )
+dir_x = "1"
+dir_y = "0.7"
+knockback = "8"
+pushback_x = "1"
+knockdown = true
+knockdown_extends_hitstun = false
+start_tick = 10
+
+[node name="KCAirJab" type="Node2D" parent="StateMachine" index="83"]
+script = ExtResource( 188 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+apply_custom_grav = true
+custom_grav = "0.01"
+custom_grav_max_fall_speed = "3"
+sprite_animation = "KCAirJab"
+anim_length = 15
+sprite_anim_length = 7
+ticks_per_frame = 2
+force_dir_x = "1"
+force_speed = "0"
+force_tick = -1
+enter_force_dir_y = "-1"
+enter_force_speed = "12"
+title = "Wind Talk"
+type = 1
+button_texture = ExtResource( 314 )
+air_type = 1
+iasa_at = 14
+iasa_on_hit = 12
+interrupt_from_string = "Aerial
+AerialAttack"
+interrupt_into_string = "Aerial"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/KCAirJab" index="0"]
+z_index = 1000
+script = ExtResource( 5 )
+x = 46
+y = -21
+width = 32
+height = 17
+damage = 40
+minimum_damage = 15
+hitstun_ticks = 22
+hitlag_ticks = 6
+victim_hitlag = 10
+di_modifier = "1"
+sdi_modifier = "1"
+whiff_sound = ExtResource( 340 )
+hit_sound = ExtResource( 342 )
+dir_x = "1"
+dir_y = "-0.1"
+knockback = "5"
+pushback_x = "1"
+knockdown = true
+knockdown_extends_hitstun = false
+start_tick = 7
+active_ticks = 4
+
+[node name="KCAirComet" type="Node2D" parent="StateMachine" index="84"]
+script = ExtResource( 188 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+reset_y_momentum = true
+apply_custom_grav = true
+custom_grav = "0.01"
+custom_grav_max_fall_speed = "3"
+sprite_animation = "KCComet"
+anim_length = 19
+sprite_anim_length = 9
+ticks_per_frame = 2
+force_dir_x = "1"
+force_speed = "0"
+force_tick = -1
+enter_force_dir_x = "1"
+enter_force_dir_y = "-1"
+enter_force_speed = "6"
+title = "Poseidon"
+type = 1
+button_texture = ExtResource( 315 )
+air_type = 1
+iasa_at = 18
+iasa_on_hit = 16
+interrupt_from_string = "Aerial
+AerialAttack"
+interrupt_into_string = "Aerial"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/KCAirComet" index="0"]
+z_index = 1000
+script = ExtResource( 5 )
+x = 23
+y = -42
+height = 9
+damage = 120
+minimum_damage = 30
+hitstun_ticks = 35
+hitlag_ticks = 6
+victim_hitlag = 8
+di_modifier = "1"
+sdi_modifier = "1"
+hit_height = 0
+hit_sound = ExtResource( 343 )
+dir_x = "1"
+dir_y = "1"
+knockback = "12"
+pushback_x = "1"
+minimum_grounded_frames = 14
+knockdown = true
+hard_knockdown = true
+wall_slam = true
+start_tick = 11
+active_ticks = 2
+
+[node name="Hitbox3" type="Node2D" parent="StateMachine/KCAirComet" index="1"]
+z_index = 1000
+script = ExtResource( 5 )
+x = -6
+y = -62
+width = 11
+height = 9
+damage = 170
+minimum_damage = 50
+hitstun_ticks = 45
+hitlag_ticks = 8
+victim_hitlag = 10
+di_modifier = "0"
+sdi_modifier = "0"
+hit_height = 0
+hit_sound = ExtResource( 343 )
+dir_x = "1"
+dir_y = "1"
+knockback = "12"
+pushback_x = "1"
+minimum_grounded_frames = 14
+knockdown = true
+hard_knockdown = true
+wall_slam = true
+start_tick = 11
+active_ticks = 2
+
+[node name="Hitbox2" type="Node2D" parent="StateMachine/KCAirComet" index="2"]
+z_index = 1000
+script = ExtResource( 5 )
+x = 10
+y = -58
+height = 9
+damage = 100
+minimum_damage = 25
+hitstun_ticks = 25
+hitlag_ticks = 6
+victim_hitlag = 8
+di_modifier = "1"
+sdi_modifier = "1"
+hit_height = 0
+priority = -1
+hit_sound = ExtResource( 343 )
+dir_x = "1"
+dir_y = "1"
+knockback = "12"
+pushback_x = "1"
+minimum_grounded_frames = 14
+knockdown = true
+hard_knockdown = true
+wall_slam = true
+start_tick = 11
+active_ticks = 2
+
+[node name="KCDivekick" type="Node2D" parent="StateMachine" index="85"]
+script = ExtResource( 229 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "KCDivekick"
+anim_length = 30
+sprite_anim_length = 5
+ticks_per_frame = 2
+loop_animation = true
+animation_loop_start = 2
+force_dir_x = "1"
+force_dir_y = "1"
+force_speed = "20"
+force_tick = 5
+enter_force_dir_x = "0"
+enter_force_speed = "0"
+title = "City Picture"
+type = 1
+button_texture = ExtResource( 251 )
+air_type = 1
+interrupt_from_string = "Aerial
+AerialAttack"
+interrupt_into_string = "Aerial"
+hit_cancel_into_string = "Aerial
+AerialAttack"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/KCDivekick" index="0"]
+z_index = 1000
+script = ExtResource( 5 )
+x = 10
+y = -2
+width = 11
+height = 11
+damage = 20
+minimum_damage = 10
+hitstun_ticks = 32
+hitlag_ticks = 3
+victim_hitlag = 3
+scale_combo = false
+increment_combo = false
+di_modifier = "0.1"
+sdi_modifier = "0.1"
+hit_height = 0
+whiff_sound = ExtResource( 347 )
+hit_sound = ExtResource( 346 )
+dir_x = "1"
+dir_y = "1"
+knockback = "4"
+pushback_x = "0.3"
+knockdown = true
+knockdown_extends_hitstun = false
+hard_knockdown = true
+air_ground_bounce = true
+start_tick = 5
+active_ticks = 25
+looping = true
+loop_active_ticks = 1
+loop_inactive_ticks = 1
+
+[node name="KCAirGrab" type="Node2D" parent="StateMachine" index="86"]
+script = ExtResource( 398 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+reset_y_momentum = true
+apply_custom_grav = true
+custom_grav = "0.005"
+sprite_animation = "KCAirGrab"
+anim_length = 21
+sprite_anim_length = 3
+ticks_per_frame = 4
+loop_animation = true
+animation_loop_start = 2
+force_dir_x = "1"
+force_dir_y = "1"
+force_speed = "20"
+force_tick = 5
+enter_force_dir_x = "0"
+enter_force_speed = "0"
+title = "Providence"
+type = 2
+data_ui_scene = ExtResource( 364 )
+button_texture = ExtResource( 408 )
+air_type = 1
+land_cancel = true
+landing_recovery = 18
+throw_techable = true
+interrupt_from_string = "Aerial
+AerialAttack"
+interrupt_into_string = "Aerial"
+hit_cancel_into_string = "Aerial
+AerialAttack"
+
+[node name="ThrowBox" type="Node2D" parent="StateMachine/KCAirGrab" index="0"]
+z_index = 1000
+script = ExtResource( 390 )
+x = 21
+y = -23
+width = 13
+height = 4
+damage = 5
+increment_combo = false
+hits_vs_grounded = false
+hit_sound = ExtResource( 394 )
+start_tick = 9
+active_ticks = 13
+throw_state = "KCAirGrab2"
+
+[node name="KCAirGrab2" type="Node2D" parent="StateMachine" index="87"]
+script = ExtResource( 397 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+reset_y_momentum = true
+sprite_animation = "KCAirGrab2"
+anim_length = 21
+sprite_anim_length = 2
+ticks_per_frame = 4
+animation_loop_start = 2
+endless = true
+force_dir_x = "0"
+enter_force_dir_x = "0"
+enter_force_dir_y = "-1"
+enter_force_speed = "5"
+title = "Providence"
+show_in_menu = false
+type = 2
+air_type = 1
+next_state_on_hold = false
+end_feint = false
+usable_from_whiff_cancel_if_possible = false
+burst_cancellable = false
+burstable = false
+self_hit_cancellable = false
+self_interruptable = false
+reversible = false
+instant_cancellable = false
+can_feint_if_possible = false
+selectable = false
+start_throw_pos_x = 20
+start_throw_pos_y = 10
+
+[node name="KCAirGrab3" type="Node2D" parent="StateMachine" index="88"]
+script = ExtResource( 399 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+reset_momentum = true
+sprite_animation = "KCAirGrab3"
+anim_length = 9
+sprite_anim_length = 3
+ticks_per_frame = 3
+animation_loop_start = 2
+enter_force_dir_y = "-1"
+particle_scene = ExtResource( 403 )
+particle_position = Vector2( 20, 0 )
+spawn_particle_on_enter = true
+enter_sfx = ExtResource( 344 )
+enter_sfx_volume = -4.0
+sfx = ExtResource( 243 )
+sfx_volume = -7.0
+title = "Providence"
+show_in_menu = false
+type = 2
+air_type = 1
+next_state_on_hold = false
+end_feint = false
+usable_from_whiff_cancel_if_possible = false
+burst_cancellable = false
+burstable = false
+self_hit_cancellable = false
+self_interruptable = false
+reversible = false
+instant_cancellable = false
+can_feint_if_possible = false
+selectable = false
+release = true
+release_frame = 2
+start_throw_pos_x = 20
+start_throw_pos_y = 5
+release_throw_pos_x = 20
+release_throw_pos_y = 5
+hitstun_ticks = 45
+knockback = "8"
+dir_y = "0.3"
+grounded_hit_state = "HurtAerial"
+damage = 90
+damage_in_combo = 90
+screenshake_amount = 12
+screenshake_frames = 8
+wall_slam = true
+di_modifier = "1.4"
+
+[node name="KCLand" type="Node2D" parent="StateMachine" index="89"]
+script = ExtResource( 188 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "KCLand"
+anim_length = 6
+sprite_anim_length = 3
+ticks_per_frame = 2
+force_dir_x = "0"
+force_speed = "0"
+force_tick = -1
+enter_force_dir_x = "0"
+enter_force_speed = "0"
+enter_sfx = ExtResource( 343 )
+title = "Shouldnt see this one???"
+show_in_menu = false
+type = 1
+button_texture = ExtResource( 4 )
+land_cancel = true
+interruptible_on_opponent_turn = true
+end_feint = false
+usable_from_whiff_cancel_if_possible = false
+interrupt_from_string = "Grounded
+GroundedAttack"
+interrupt_into_string = "Grounded"
+hit_cancel_into_string = "Grounded
+GroundedAttack"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/KCLand" index="0"]
+z_index = 1000
+script = ExtResource( 5 )
+x = -2
+y = -2
+width = 16
+height = 5
+damage = 20
+minimum_damage = 10
+hitstun_ticks = 18
+hitlag_ticks = 2
+victim_hitlag = 2
+di_modifier = "1"
+sdi_modifier = "1"
+force_grounded = true
+dir_x = "1"
+dir_y = "0"
+knockback = "3"
+block_pushback_modifier = "1"
+pushback_x = "1"
+knockdown = true
+air_ground_bounce = true
+active_ticks = 2
+
+[node name="KCPunchNew" type="Node2D" parent="StateMachine" index="90"]
+script = ExtResource( 188 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+apply_custom_x_fric = true
+custom_x_fric = "0.01"
+sprite_animation = "KCPunch2"
+anim_length = 16
+sprite_anim_length = 8
+ticks_per_frame = 2
+force_dir_x = "1"
+force_speed = "3"
+force_tick = 7
+enter_force_dir_x = "1"
+enter_force_speed = "2"
+title = "Easy Money"
+type = 1
+button_texture = ExtResource( 95 )
+interrupt_from_string = "Grounded
+GroundedAttack"
+interrupt_into_string = "Grounded"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/KCPunchNew" index="0"]
+z_index = 1000
+script = ExtResource( 5 )
+x = 56
+y = -17
+width = 46
+height = 26
+damage = 120
+damage_in_combo = 90
+minimum_damage = 60
+hitstun_ticks = 36
+hitlag_ticks = 8
+victim_hitlag = 16
+di_modifier = "1"
+sdi_modifier = "1"
+whiff_sound = ExtResource( 338 )
+hit_sound = ExtResource( 341 )
+dir_x = "1"
+dir_y = "-0.2"
+knockback = "9"
+block_pushback_modifier = "1.2"
+pushback_x = "10"
+knockdown = true
+knockdown_extends_hitstun = false
+start_tick = 9
+active_ticks = 3
+
+[node name="KCKickFlip" type="Node2D" parent="StateMachine" index="91"]
+script = ExtResource( 188 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+reset_x_momentum = true
+sprite_animation = "KCKickFlip"
+anim_length = 22
+sprite_anim_length = 10
+ticks_per_frame = 2
+force_dir_x = "1"
+force_dir_y = "-0.4"
+force_speed = "24"
+force_tick = 9
+enter_force_dir_x = "-1"
+enter_force_speed = "12"
+title = "Cadence"
+type = 1
+button_texture = ExtResource( 252 )
+landing_recovery = 1
+min_land_cancel_frame = 1
+interrupt_from_string = "Grounded
+GroundedAttack"
+interrupt_into_string = "Grounded"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/KCKickFlip" index="0"]
+z_index = 1000
+script = ExtResource( 5 )
+x = 26
+y = -22
+width = 38
+height = 46
+damage = 90
+minimum_damage = 45
+hitstun_ticks = 32
+victim_hitlag = 12
+di_modifier = "1"
+sdi_modifier = "1"
+hit_height = 0
+whiff_sound = ExtResource( 337 )
+dir_x = "-1"
+dir_y = "1"
+knockback = "10"
+block_pushback_modifier = "1"
+pushback_x = "1"
+knockdown_extends_hitstun = false
+start_tick = 13
+active_ticks = 4
+
+[node name="KCStandingDivekick" type="Node2D" parent="StateMachine" index="92"]
+script = ExtResource( 211 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_fric = true
+apply_grav = true
+reset_x_momentum = true
+sprite_animation = "KCStandingDivekick"
+anim_length = 27
+sprite_anim_length = 8
+ticks_per_frame = 3
+force_dir_x = "1"
+force_dir_y = "-1"
+force_speed = "6"
+force_tick = 10
+enter_force_dir_x = "-1"
+enter_force_speed = "1"
+title = "Cascade"
+type = 1
+data_ui_scene = ExtResource( 210 )
+button_texture = ExtResource( 247 )
+min_land_cancel_frame = -2
+interrupt_from_string = "Grounded
+GroundedAttack"
+interrupt_into_string = "Grounded"
+hit_cancel_into_string = "Grounded
+GroundedAttack"
+beats_backdash = true
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/KCStandingDivekick" index="0"]
+z_index = 1000
+script = ExtResource( 5 )
+x = 18
+y = -6
+width = 18
+height = 19
+damage = 125
+minimum_damage = 75
+hitstun_ticks = 38
+hitlag_ticks = 9
+victim_hitlag = 9
+di_modifier = "0.6"
+sdi_modifier = "1"
+hit_sound = ExtResource( 341 )
+dir_x = "1"
+dir_y = "0.1"
+knockback = "10"
+block_pushback_modifier = "1"
+pushback_x = "1"
+knockdown = true
+knockdown_extends_hitstun = false
+ground_bounce = false
+start_tick = 16
+active_ticks = 6
+
+[node name="KCArmoredCharge" type="Node2D" parent="StateMachine" index="93"]
+script = ExtResource( 363 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_fric = true
+apply_grav = true
+reset_y_momentum = true
+sprite_animation = "KCCharge"
+anim_length = 30
+sprite_anim_length = 4
+ticks_per_frame = 4
+force_dir_x = "-1"
+force_dir_y = "0"
+force_speed = "6"
+force_tick = 2
+enter_force_dir_x = "-1"
+enter_force_speed = "1"
+state_screenshake_tick = 13
+state_screenshake_dir = Vector2( 0, 1 )
+state_screenshake_amount = 3
+sfx = ExtResource( 366 )
+sfx_tick = 13
+title = "For No Reason"
+type = 2
+data_ui_scene = ExtResource( 364 )
+button_texture = ExtResource( 407 )
+air_type = 2
+min_land_cancel_frame = -2
+interrupt_from_string = "Grounded
+GroundedAttack
+Aerial
+AerialAttack"
+interrupt_into_string = "Grounded
+GroundedAttack
+Aerial
+AerialAttack"
+hit_cancel_into_string = "Grounded
+GroundedAttack
+Aerial
+AerialAttack"
+beats_backdash = true
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/KCArmoredCharge" index="0"]
+z_index = 1000
+script = ExtResource( 5 )
+x = 7
+y = -12
+width = 9
+height = 12
+damage = 20
+minimum_damage = 10
+chip_damage_modifier = "0.1"
+hitstun_ticks = 16
+hitlag_ticks = 6
+victim_hitlag = 6
+damage_proration = 1
+di_modifier = "0.2"
+sdi_modifier = "1"
+beats_grab = false
+hit_sound = ExtResource( 341 )
+dir_x = "1"
+dir_y = "0.1"
+knockback = "10"
+block_pushback_modifier = "1"
+pushback_x = "1"
+knockdown_extends_hitstun = false
+ground_bounce = false
+start_tick = 13
+active_ticks = 20
+
+[node name="KCKnife" type="Node2D" parent="StateMachine" index="94"]
+script = ExtResource( 299 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "KCKnife"
+anim_length = 18
+sprite_anim_length = 6
+ticks_per_frame = 3
+force_dir_x = "1"
+force_dir_y = "0"
+force_speed = "3"
+force_tick = 10
+enter_force_dir_x = "-1"
+enter_force_speed = "2"
+projectile_match_facing = true
+title = "Neal and Jack"
+type = 2
+data_ui_scene = ExtResource( 301 )
+button_texture = ExtResource( 296 )
+air_type = 2
+min_land_cancel_frame = -2
+interrupt_from_string = "Grounded
+GroundedAttack
+Aerial
+AerialAttack"
+interrupt_into_string = "Grounded
+Aerial"
+velocity_forward_meter_gain_multiplier = "4.0"
+projectile = ExtResource( 300 )
+projectile_x = 32
+speed_modifier_amount = "1.4"
+
+[node name="KCRock" type="Node2D" parent="StateMachine" index="95"]
+script = ExtResource( 358 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "KCRock"
+anim_length = 27
+sprite_anim_length = 7
+ticks_per_frame = 3
+force_dir_x = "0"
+force_dir_y = "0"
+force_speed = "0"
+force_tick = -1
+enter_force_dir_x = "-1"
+enter_force_speed = "2"
+timed_particle_scene = ExtResource( 359 )
+timed_spawn_particle_tick = 13
+enter_sfx = ExtResource( 345 )
+enter_sfx_volume = -5.0
+sfx = ExtResource( 365 )
+sfx_tick = 13
+sfx_volume = -10.0
+projectile_match_facing = true
+title = "Fire Witch"
+type = 2
+button_texture = ExtResource( 405 )
+min_land_cancel_frame = -2
+interrupt_from_string = "Grounded
+GroundedAttack
+Aerial
+AerialAttack"
+interrupt_into_string = "Grounded
+Aerial
+GroundedAttack
+AerialAttack"
+projectile = ExtResource( 357 )
+projectile_y = 0
+
+[node name="CallBoss" type="Node2D" parent="StateMachine" index="96"]
+script = ExtResource( 373 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "CallBoss"
+anim_length = 36
+sprite_anim_length = 12
+ticks_per_frame = 3
+state_screenshake_dir = Vector2( 5, 1 )
+state_screenshake_length = 0.0
+state_screenshake_amount = 0
+timed_particle_scene = ExtResource( 313 )
+timed_particle_position = Vector2( -15, -22 )
+timed_spawn_particle_tick = 30
+enter_sfx = ExtResource( 372 )
+title = "Epitaph (Free)"
+type = 4
+button_texture = ExtResource( 404 )
+uses_air_movement = true
+burst_cancellable = false
+burstable = false
+self_hit_cancellable = false
+self_interruptable = false
+instant_cancellable = false
+can_feint_if_possible = false
+interrupt_from_string = "Grounded"
+interrupt_into_string = "Grounded"
+hit_cancel_into_string = "Grounded"
+
+[node name="Taunt" parent="StateMachine" index="97"]
+sprite_animation = "Hustle"
+sprite_anim_length = 23
+ticks_per_frame = 4
+
+[node name="StandDashCharge" type="Node2D" parent="StateMachine" index="99"]
+script = ExtResource( 145 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+fallback_state = "ChargeDashForward"
+sprite_animation = "SuperRun"
+anim_length = 6
+sprite_anim_length = 2
+ticks_per_frame = 3
+endless = true
+enter_force_dir_x = "-1.0"
+enter_force_speed = "0.5"
+timed_particle_scene = ExtResource( 140 )
+timed_spawn_particle_tick = 7
+title = "Stand Dash"
+button_texture = ExtResource( 157 )
+flip_with_facing = true
+interruptible_on_opponent_turn = true
+update_facing_on_exit = false
+dynamic_iasa = false
+allow_framecheat = true
+next_state_on_hold = false
+reversible = false
+interrupt_from_string = "GroundedMovement
+Grounded"
+interrupt_into_string = "Grounded"
+beats_backdash = true
+
+[node name="StandDash" type="Node2D" parent="StateMachine" index="100"]
+script = ExtResource( 141 )
+reset_momentum = true
+anim_length = 15
+particle_scene = ExtResource( 140 )
+spawn_particle_on_enter = true
+enter_sfx = ExtResource( 143 )
+enter_sfx_volume = -10.0
+title = "Stand Dash"
+show_in_menu = false
+data_ui_scene = ExtResource( 139 )
+button_texture = ExtResource( 142 )
+flip_with_facing = true
+iasa_at = 10
+interruptible_on_opponent_turn = true
+reversible = false
+interrupt_from_string = "GroundedMovement
+Grounded
+Dash"
+interrupt_into_string = "Grounded"
+allowed_stances_string = "All"
+change_stance_to = "Normal"
+beats_backdash = true
+dash_speed = 12
+
+[node name="StandJump" type="Node2D" parent="StateMachine" index="101"]
+script = ExtResource( 151 )
+__meta__ = {
+"_editor_description_": ""
+}
+fallback_state = "Fall"
+sprite_animation = "SuperJump"
+anim_length = 120
+sprite_anim_length = 4
+ticks_per_frame = 3
+particle_scene = ExtResource( 150 )
+sfx = ExtResource( 153 )
+sfx_tick = 10
+sfx_volume = -8.0
+title = "Stand Leap"
+data_ui_scene = ExtResource( 154 )
+button_texture = ExtResource( 178 )
+interrupt_frames = [ 15, 28, 42, 60 ]
+next_state_on_hold = false
+reversible = false
+interrupt_from_string = "GroundedMovement
+Grounded
+Jump"
+interrupt_into_string = "Aerial"
+allowed_stances_string = "All
+"
+change_stance_to = "Normal"
+speed = "16"
+y_modifier = "1.1"
+super_jump = true
+super_jump_speed_override = "30"
+
+[node name="TeleDodge" type="Node2D" parent="StateMachine" index="102"]
+script = ExtResource( 156 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_grav = true
+reset_momentum = true
+sprite_animation = "BlurDodge"
+anim_length = 14
+sprite_anim_length = 2
+ticks_per_frame = 2
+enter_sfx = ExtResource( 143 )
+enter_sfx_volume = -10.0
+title = "Dash Skip"
+type = 4
+data_ui_scene = ExtResource( 155 )
+button_texture = ExtResource( 180 )
+flip_icon = false
+air_type = 2
+reversible = false
+interrupt_from_string = "GroundedMovement
+Grounded
+Aerial
+AerialMovement
+GroundedDefense
+AerialDefense"
+interrupt_into_string = "Grounded
+Aerial"
+
+[node name="TeleTech" type="Node2D" parent="StateMachine" index="103"]
+script = ExtResource( 156 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+reset_momentum = true
+sprite_animation = "BlurDodge"
+anim_length = 12
+sprite_anim_length = 2
+ticks_per_frame = 2
+title = "Tech Tele"
+type = 4
+data_ui_scene = ExtResource( 155 )
+button_texture = ExtResource( 180 )
+reversible = false
+interrupt_from_string = "OTG"
+interrupt_into_string = "Grounded
+Aerial"
+allowed_stances_string = "All"
+tech = true
+
+[node name="AirTele" type="Node2D" parent="StateMachine" index="104"]
+script = ExtResource( 169 )
+__meta__ = {
+"_editor_description_": ""
+}
+reset_momentum = true
+apply_custom_x_fric = true
+apply_custom_y_fric = true
+custom_x_fric = "0.05"
+custom_y_fric = "0.05"
+fallback_state = "Fall"
+sprite_animation = "BlurDodge"
+anim_length = 10
+sprite_anim_length = 1
+ticks_per_frame = 2
+enter_sfx = ExtResource( 143 )
+enter_sfx_volume = -10.0
+title = "Air Skip"
+data_ui_scene = ExtResource( 170 )
+button_texture = ExtResource( 179 )
+flip_with_facing = true
+air_type = 1
+uses_air_movement = true
+interruptible_on_opponent_turn = true
+reversible = false
+interrupt_from_string = "AerialMovement
+Aerial"
+interrupt_into_string = "Aerial
+Grounded
+Fall"
+no_collision_start_frame = 0
+no_collision_end_frame = 3
+speed = "12"
+
+[node name="Walk" type="Node2D" parent="StateMachine" index="105"]
+script = ExtResource( 261 )
+__meta__ = {
+"_editor_description_": ""
+}
+reset_momentum = true
+fallback_state = "Walk"
+sprite_animation = "Walk"
+anim_length = 24
+sprite_anim_length = 4
+ticks_per_frame = 6
+spawn_particle_on_enter = true
+enter_sfx = ExtResource( 409 )
+enter_sfx_volume = -10.0
+title = "Walk"
+button_texture = ExtResource( 317 )
+flip_with_facing = true
+interruptible_on_opponent_turn = true
+reversible = false
+interrupt_from_string = "GroundedMovement
+Grounded
+Dash"
+interrupt_into_string = "Grounded"
+allowed_stances_string = "All"
+change_stance_to = "Normal"
+beats_backdash = true
+
+[node name="Pose" type="Node2D" parent="StateMachine" index="106"]
+z_index = 2000
+script = ExtResource( 349 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "Pose"
+anim_length = 6000
+sprite_anim_length = 1
+absolute_loop = true
+enter_sfx = ExtResource( 267 )
+enter_sfx_volume = -6.0
+title = "Pose"
+type = 4
+button_texture = ExtResource( 318 )
+flip_icon = false
+interruptible_on_opponent_turn = true
+interrupt_from_string = "GroundedIdle
+Grounded"
+interrupt_into_string = "Grounded
+Aerial"
+
+[node name="TimeSkipExit" type="Node2D" parent="StateMachine" index="107"]
+z_index = 2000
+script = ExtResource( 414 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "Blur"
+anim_length = 5
+sprite_anim_length = 1
+show_in_menu = false
+air_type = 2
+iasa_at = 0
+busy_interrupt_type = 2
+interrupt_into_string = "Grounded
+Aerial"

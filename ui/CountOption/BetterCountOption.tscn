@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://ui/CountOption/CountOption.tscn" type="PackedScene" id=1]
+[ext_resource path="res://DiavoloChar/ui/CountOption/BetterCountOption.gd" type="Script" id=2]
+
+[node name="CountOption" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="HSlider" parent="." index="1"]
+rounded = true
+
+[node name="UpdateTimer" type="Timer" parent="." index="3"]
+unique_name_in_owner = true
+wait_time = 0.3
+autostart = true
