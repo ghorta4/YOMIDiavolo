@@ -3,7 +3,7 @@
     "friendly_name": "Diavolo",
     "description": "Make doughnuts in your favorite turn based fighting game! This character can be a bit buggy online in replays, especially with the Time Erase ability. I've tried my darndest to fix it, I promise.  ===  King Crimson's aura ffx and custom colors can be disabled by setting extra color 1 to 'ffffff', or pure white.",
     "author": "DoYouSellVHS",
-    "version": "2.6",
+    "version": "2.7",
     "link": "",
     "id": "(Currently not in use)",
     "overwrites": false,
