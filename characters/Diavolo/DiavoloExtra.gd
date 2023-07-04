@@ -8,9 +8,10 @@ func _ready():
 	move_stand.connect("data_changed", self, "emit_signal", ["data_changed"])
 	return
 
+# TODO - Figure out why this doesn't update properly until you preview a move
 func get_extra():
 	var extra = {
-		"desiredOffset":move_stand.get_data(), 
+		"desiredOffset":move_stand.get_data(),
 	}
 	return extra
 
