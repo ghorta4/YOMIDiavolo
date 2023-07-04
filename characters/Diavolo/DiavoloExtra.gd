@@ -9,6 +9,7 @@ func _ready():
 	return
 
 # TODO - Figure out why this doesn't update properly until you preview a move
+# LINK[id=Extras] DiavoloChar\characters\Diavolo\Diavolo.gd#Extras
 func get_extra():
 	var extra = {
 		"desiredOffset":move_stand.get_data(),

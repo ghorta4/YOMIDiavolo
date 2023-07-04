@@ -288,7 +288,8 @@ func tick_after():
 		applyPostTimeEraseLag = false
 		opponent.hitlag_ticks += 15
 
-
+# TODO - Figure out why this doesn't update properly until you preview a move
+# LINK[id=Extras] DiavoloChar\characters\Diavolo\DiavoloExtra.gd#Extras
 func process_extra(extra):
 	.process_extra(extra)
 	if extra.has("desiredOffset"):
