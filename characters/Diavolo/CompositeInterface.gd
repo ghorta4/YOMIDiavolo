@@ -23,7 +23,7 @@ func init_variables():
 	}
 
 func set_composite_variable(key:String, value, target:BaseObj):
-	var target_interface = target.get("get_composite_interface")
+	var target_interface = target.get("composite_interface")
 	if target_interface != null:
 		target_interface.recieve_composite_variable(key, value, owner)
 	else:
@@ -45,8 +45,8 @@ func check_composite_variable(key:String, values_by_player_id:Dictionary):
 	# Missing variables will be null
 	# By default just assumes it'll be a bool and that nulls are false
 	for value in values_by_player_id.values():
-		if value == null:
-			value = false
 		if value:
 			owner.set(key, value)
 			return value
+	owner.set(key, false)
+	return false
