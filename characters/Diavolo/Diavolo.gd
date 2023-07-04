@@ -29,7 +29,7 @@ const THUM = preload("res://DiavoloChar/characters/Diavolo/Particles/Thum.tscn")
 var kingCrimsonID
 
 var desiredStandOffset = {"x":0, "y":0}
-var framesToSkip = 10
+var framesToSkip = -1
 
 var erasedFramesLeft = 0
 var invulnFramesLeft = 0
