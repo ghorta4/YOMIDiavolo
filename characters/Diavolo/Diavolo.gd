@@ -818,16 +818,10 @@ func projectileHitboxIsGrab(hb):
 	return false
 
 func IncorporealSET(target, toggle):
-	if toggle:
-		set_composite_variable("incorporeal", true, target)
-		set_composite_variable("invulnerable", true, target)
-		set_composite_variable("projectile_invulnerable", true, target)
-		set_composite_variable("throw_invulnerable", true, target)
-	else:
-		set_composite_variable("incorporeal", false, target)
-		set_composite_variable("invulnerable", false, target)
-		set_composite_variable("projectile_invulnerable", false, target)
-		set_composite_variable("throw_invulnerable", false, target)
+	set_composite_variable("incorporeal", toggle, target)
+	set_composite_variable("invulnerable", toggle, target)
+	set_composite_variable("projectile_invulnerable", toggle, target)
+	set_composite_variable("throw_invulnerable", toggle, target)
 
 func MyGame() -> Game:
 	var game = Global.current_game
