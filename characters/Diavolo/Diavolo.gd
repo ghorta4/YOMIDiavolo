@@ -57,6 +57,18 @@ var storedExtraColor2
 
 var RestoreComboStateDue = false
 
+var temporal_modifiers = {
+	"timeskip":{
+		"incorporeal":true,
+		"standpause":true,
+	},
+	"timeerase":{
+		"incorporeal":true,
+	},
+}
+
+var incorporeal = false
+
 const TIMESKIP_FRAMEPAUSE = 2
 
 var fakeHitbox = {"hitbox": {"disable_collision": true, "hit_height": Hitbox.HitHeight.High, "hitstun_ticks" : 60, "counter_hit" : false,
@@ -101,7 +113,7 @@ func copy_to(f):
 var alreadyConnected
 func init(pos = null):
 	.init(pos)
-	IncorporealSET(self, false)
+	IncorporealSET(self, false) # REVIEW - This shouldn't be neccecary, but I left it for now to be sure
 	if not alreadyConnected:
 		alreadyConnected = true
 		connect("particle_effect_spawned", self, "OnParticleSpawned")
@@ -332,18 +344,6 @@ func get_active_hitboxes():
 	return .get_active_hitboxes()
 
 #customs
-
-var temporal_modifiers = {
-	"timeskip":{
-		"incorporeal":true,
-		"standpause":true,
-	},
-	"timeerase":{
-		"incorporeal":true,
-	},
-}
-
-var incorporeal = false
 
 func get_kc():
 	if kingCrimsonID == null:
