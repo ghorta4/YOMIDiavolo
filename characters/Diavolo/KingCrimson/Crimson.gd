@@ -14,6 +14,8 @@ var memorizedDirection
 
 var aura_particle
 
+var style_applied
+
 func init(pos = null):
 	.init(pos)
 	gravity_enabled = false
@@ -23,8 +25,7 @@ func init(pos = null):
 		apply_style()
 
 func apply_style():
-	if Global.enable_custom_colors:
-
+	if !style_applied && Global.enable_custom_colors:
 		var style = creator.storedStyle
 		var exColor1 = creator.storedExtraColor1
 
@@ -64,6 +65,8 @@ func apply_style():
 				aura_particle.z_index = - 1
 			else:
 				aura_particle.z_index = 1
+
+		style_applied = true
 
 func tick():
 	if hitlag_ticks > 0:
@@ -133,13 +136,20 @@ func follow_owner():
 	apply_x_fric(Friction)
 	apply_y_fric(Friction)
 
+# REVIEW - This is already implied by BaseProjectile
 func get_opponent():
 	return creator.get_opponent()
 
+# REVIEW - apply_hitboxes() does not exist in any child classes
 func apply_hitboxes():
 	if creator.erasedFramesLeft > 0 || creator.invulnFramesLeft > 0:
 		return
 	.apply_hitboxes()
+
+func get_active_hitboxes():
+	if !creator.timeEraseEnded && creator.incorporeal:
+		return []
+	return .get_active_hitboxes()
 
 func copy_to(f):
 	if f == null:

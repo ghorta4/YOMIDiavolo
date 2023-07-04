@@ -35,7 +35,7 @@ var erasedFramesLeft = 0
 var invulnFramesLeft = 0
 var epitaphFramesLeft = 0
 var timeEraseEnded = true
-var memorizedDirection = 1
+var memorizedDirection = {}
 var opponentIsDummy = false
 var summonCanTP = true
 var randList = [] #used to seed RNG so timeskip predictions are more accurate
@@ -69,6 +69,8 @@ var temporal_modifiers = {
 
 var incorporeal = false
 
+var is_multihustle = false
+
 const TIMESKIP_FRAMEPAUSE = 2
 
 var fakeHitbox = {"hitbox": {"disable_collision": true, "hit_height": Hitbox.HitHeight.High, "hitstun_ticks" : 60, "counter_hit" : false,
@@ -97,7 +99,7 @@ func copy_to(f):
 	f.timeEraseEnded = timeEraseEnded
 	f.opponentIsDummy = opponentIsDummy
 	f.invulnFramesLeft = invulnFramesLeft
-	f.memorizedDirection = memorizedDirection
+	f.memorizedDirection = memorizedDirection.duplicate(true)
 	f.randList = randList.duplicate()
 	f.summonCanTP = summonCanTP
 	f.postGrabVisuals = postGrabVisuals
@@ -117,7 +119,7 @@ func init(pos = null):
 	if not alreadyConnected:
 		alreadyConnected = true
 		connect("particle_effect_spawned", self, "OnParticleSpawned")
-
+	is_multihustle = Global.current_game.get("players") is Dictionary
 
 func setupRandList():
 	randList.clear()
@@ -130,51 +132,7 @@ var repeatBarSpawnAsEndOfRoundFinisher = false
 
 func tick():
 
-	if erasedFramesLeft > 0:
-
-		spawn_particle_effect(TIMEERASEBACK, Vector2(0,0))
-
-		erasedFramesLeft -= 1
-		afterimageCounter += 1
-		if afterimageCounter >= 7:
-			CreateAfterImage(opponent, Color(1,0,0,0.7))
-			afterimageCounter -= 7
-
-		if temporal_modifiers["timeerase"]["incorporeal"]:
-			IncorporealSET(self, true)
-			IncorporealSET(opponent, true)
-
-		opponent.set_facing(memorizedDirection)
-
-		#erm, slow down the enemy
-		TimeEraseSlowdownCounter += 1
-		if TimeEraseSlowdownCounter >= 4:
-			TimeEraseSlowdownCounter -= 4
-			opponent.hitlag_ticks += 3
-			var game = MyGame()
-			if !is_instance_valid(game):
-				print_debug("Invalid game")
-			else:
-				for obj in game.objects:
-					if obj.name == kingCrimsonID:
-						continue
-					obj.hitlag_ticks += 3
-
-		#make enemy automatically attack
-
-		#oh how I would love for the below code to work correctly. but it does not! Netcode, you are my bane. Instead, I'll apply a slowdown to the foe instead
-		#if not opponentIsDummy:
-		#	if (opponent.state_interruptable || opponent.dummy_interruptable || opponent.current_state().name == "Wait" || opponent.current_state().name == "Fall"):
-				####ForceRandomAttack(opponent) ===do not use
-		#		if not opponent.use_buffer:
-		#			ForceBufferedAttack(opponent)
-	else:
-		if timeEraseEnded == false:
-			EndTimeErase()
-
-
-
-
+	TickTimeErase()
 	.tick() #================================================================
 
 	#restore combos so timeskip cant reset them
@@ -328,6 +286,7 @@ func hit_by(hitbox):
 			return
 	.hit_by(hitbox)
 
+# REVIEW - apply_hitboxes() does not exist in any child classes
 func apply_hitboxes():
 	if erasedFramesLeft > 0 || invulnFramesLeft > 0:
 		return
@@ -342,6 +301,8 @@ func is_colliding_with_opponent():
 #restore combos so timeskip doesnt reset combos. Done here so we can wait for enemy tick
 func get_active_hitboxes():
 	ComboRestoreChecker()
+	if !timeEraseEnded && incorporeal:
+		return []
 	return .get_active_hitboxes()
 
 #customs
@@ -454,7 +415,7 @@ var ignoreEndFFX
 func TimeSkipEnd():
 	var game = MyGame()
 
-	if not temporal_modifiers["timeskip"]["incorporeal"]: # ???
+	if temporal_modifiers["timeskip"]["incorporeal"]:
 		IncorporealSET(self, false)
 
 	if !ignoreEndFFX:
@@ -524,33 +485,105 @@ func ComboRestoreChecker():
 
 func TimeErase(frames): #this creates a period of invulnerability for both diavolo and his opponent. its also a nightmare to make work over wireless. my mercy upon anyone who tries to fix it
 	erasedFramesLeft = frames
+	if temporal_modifiers["timeerase"]["incorporeal"]:
+		IncorporealSET(self, true)
 
-	opponentIsDummy = opponent.dummy
+	# I really wish there were proper delegates in Godot, or at least params
+	if !is_multihustle:
+		TimeErase_Internal(opponent)
+	else:
+		var game = MyGame()
+		if is_instance_valid(game):
+			for player in game.players.values():
+				if player != self:
+					TimeErase_Internal(player)
+
+	timeEraseEnded = false
+
+func TimeErase_Internal(opponent):
+	opponentIsDummy = opponent.dummy # FIXME - Needs to be retooled for MH support
 
 	#if false && not Network.multiplayer_active:
 	#	opponent.dummy = true #we don't do it this way because its glitchy. instead. we do it by setting the opponent's state_interruptable to false, which is about the same thing
 	#opponent.state_interruptable = false #doing it this way is just like... freaking impossible man
 
-	opponent.start_invulnerability()
-	opponent.start_projectile_invulnerability()
-	opponent.burst_enabled = false
-	start_invulnerability()
-	start_projectile_invulnerability()
+	set_composite_variable("burst_enabled", false, opponent)
 
-	memorizedDirection = opponent.get_facing_int()
+	memorizedDirection[opponent.id] = opponent.get_facing_int()
 
-	timeEraseEnded = false
+func TickTimeErase():
+	if erasedFramesLeft > 0:
+		spawn_particle_effect(TIMEERASEBACK, Vector2(0,0))
+
+		erasedFramesLeft -= 1
+		afterimageCounter += 1
+
+		if temporal_modifiers["timeerase"]["incorporeal"]:
+			IncorporealSET(self, true)
+
+		if !is_multihustle:
+			TickTimeErase_Internal(opponent)
+		else:
+			var game = MyGame()
+			if is_instance_valid(game):
+				for player in game.players.values():
+					if player != self:
+						TickTimeErase_Internal(player)
+	else:
+		if timeEraseEnded == false:
+			EndTimeErase()
+
+func TickTimeErase_Internal(opponent):
+		spawn_particle_effect(TIMEERASEBACK, Vector2(0,0))
+
+		# FIXME - This seems to bug out the preview on any attacks with flip enabled
+		opponent.set_facing(memorizedDirection[opponent.id])
+
+		#erm, slow down the enemy
+		TimeEraseSlowdownCounter += 1
+		if TimeEraseSlowdownCounter >= 4:
+			TimeEraseSlowdownCounter -= 4
+			opponent.hitlag_ticks += 3
+			var game = MyGame()
+			if !is_instance_valid(game):
+				print_debug("Invalid game")
+			else:
+				for obj in game.objects:
+					if obj.name == kingCrimsonID:
+						continue
+					obj.hitlag_ticks += 3
+
+		"""
+		#make enemy automatically attack
+		#oh how I would love for the below code to work correctly. but it does not! Netcode, you are my bane. Instead, I'll apply a slowdown to the foe instead
+		if not opponentIsDummy:
+			if (opponent.state_interruptable || opponent.dummy_interruptable || opponent.current_state().name == "Wait" || opponent.current_state().name == "Fall"):
+				####ForceRandomAttack(opponent) ===do not use
+				if not opponent.use_buffer:
+					ForceBufferedAttack(opponent)
+		"""
 
 func EndTimeErase():
-	opponent.dummy = opponentIsDummy
 	timeEraseEnded = true
 	if temporal_modifiers["timeerase"]["incorporeal"]:
-		IncorporealSET(opponent, false)
 		IncorporealSET(self, false)
 	erasedFramesLeft = 0
-	opponent.burst_enabled = true
+
+	if !is_multihustle:
+		EndTimeErase_Internal(opponent)
+	else:
+		var game = MyGame()
+		if is_instance_valid(game):
+			for player in game.players.values():
+				if player != self:
+					EndTimeErase_Internal(player)
+
 	spawn_particle_effect_relative(TIMEERASEEND, Vector2(0,-15))
 	play_sound("timeResumes")
+
+func EndTimeErase_Internal(opponent):
+	#opponent.dummy = opponentIsDummy
+	set_composite_variable("burst_enabled", true, opponent)
 
 func CallCommand(commandName):
 	var kc = get_kc()
@@ -798,7 +831,7 @@ func IsBeingGrabbed():
 
 	#disable grab projectiles here
 	var game = MyGame()
-	if game == null: return
+	if !is_instance_valid(game): return
 	for object in game.objects:
 		if object.disabled:
 			continue
@@ -824,11 +857,14 @@ func IncorporealSET(target, toggle):
 	set_composite_variable("projectile_invulnerable", toggle, target)
 	set_composite_variable("throw_invulnerable", toggle, target)
 
+# Sometimes this just returns null for no reason, but it seems to still work
 func MyGame() -> Game:
 	var game = Global.current_game
 	if is_ghost:
 		game = game.ghost_game
 
+	if !is_instance_valid(game):
+		print_debug("game instance invalid")
 	return game
 
 func CheckEasterEgg(target, easterEggName, easterEggParams):
