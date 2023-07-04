@@ -59,14 +59,14 @@ var RestoreComboStateDue = false
 
 const TIMESKIP_FRAMEPAUSE = 2
 
-var fakeHitbox = {"hitbox": {"disable_collision": true, "hit_height": Hitbox.HitHeight.High, "hitstun_ticks" : 60, "counter_hit" : false, 
+var fakeHitbox = {"hitbox": {"disable_collision": true, "hit_height": Hitbox.HitHeight.High, "hitstun_ticks" : 60, "counter_hit" : false,
 	"wall_slam" : false, "dir_x" : "1.0", "dir_y" : "0", "facing" : "None", "reversible" : false, "pos_x" : 0, "pos_y" : 0, "knockback" : "0",
 	"di_modifier" : "0", "hitbox_type" : Hitbox.HitboxType.Normal, "vacuum" : false, "send_away_from_center" : false, "knockdown" : false , "hard_knockdown" : false,
 	"ground_bounce" : false, "knockdown_extends_hitstun" : false, "air_ground_bounce" : false,  "minimum_grounded_frames" : 0
 	}}
 
 const EPOKStates = ["Wait", "ParryHigh", "ParryLow", "ParryAir", "Burst", "Fall", "Landing", "Getup", "TechRoll", "DashForward", "ChargeDashForward", "DashStartup", "Jump", "ChargeDash",
-"InstantCancel", "Summon", "Desummon", "TimeSkip1", "TimeSkipSuper", "TimeSkipBurst", "TimeEraseSuper", "TimeEraseEnd", "CounterSuper", "EpitaphSuper", "EpitaphDodge", "StandDashCharge", 
+"InstantCancel", "Summon", "Desummon", "TimeSkip1", "TimeSkipSuper", "TimeSkipBurst", "TimeEraseSuper", "TimeEraseEnd", "CounterSuper", "EpitaphSuper", "EpitaphDodge", "StandDashCharge",
 "StandDash", "TeleDodge", "TeleTech", "AirTele", "Walk", "Pose", "CallBoss"]
 
 #overrides
@@ -117,24 +117,24 @@ var afterimageCounter = 0
 var repeatBarSpawnAsEndOfRoundFinisher = false
 
 func tick():
-	
+
 	if erasedFramesLeft > 0:
-		
+
 		spawn_particle_effect(TIMEERASEBACK, Vector2(0,0))
-		
+
 		erasedFramesLeft -= 1
 		afterimageCounter += 1
 		if afterimageCounter >= 7:
 			CreateAfterImage(opponent, Color(1,0,0,0.7))
 			afterimageCounter -= 7
-		
+
 		if temporal_modifiers["timeerase"]["incorporeal"]:
 			IncorporealSET(self, true)
 			IncorporealSET(opponent, true)
-		
+
 		opponent.set_facing(memorizedDirection)
-		
-		#erm, slow down the enemy 
+
+		#erm, slow down the enemy
 		TimeEraseSlowdownCounter += 1
 		if TimeEraseSlowdownCounter >= 4:
 			TimeEraseSlowdownCounter -= 4
@@ -147,11 +147,11 @@ func tick():
 					if obj.name == kingCrimsonID:
 						continue
 					obj.hitlag_ticks += 3
-		
+
 		#make enemy automatically attack
-		
+
 		#oh how I would love for the below code to work correctly. but it does not! Netcode, you are my bane. Instead, I'll apply a slowdown to the foe instead
-		#if not opponentIsDummy: 
+		#if not opponentIsDummy:
 		#	if (opponent.state_interruptable || opponent.dummy_interruptable || opponent.current_state().name == "Wait" || opponent.current_state().name == "Fall"):
 				####ForceRandomAttack(opponent) ===do not use
 		#		if not opponent.use_buffer:
@@ -159,22 +159,22 @@ func tick():
 	else:
 		if timeEraseEnded == false:
 			EndTimeErase()
-	
-	
-	
-	
+
+
+
+
 	.tick() #================================================================
-	
+
 	#restore combos so timeskip cant reset them
 	#ComboRestoreChecker()
-	
+
 	UpdateParticleCache()
-	
+
 	if epitaphFramesLeft > 0:
 		epitaphFramesLeft -= 1
 		if not state_machine.state.name in EPOKStates:
 			epitaphFramesLeft = 0
-	
+
 	if state_machine.state.name == "Walk":
 		menacingTick += 1
 		if menacingTick >= 12:
@@ -183,20 +183,20 @@ func tick():
 			var opponentIsWalking = CheckEasterEgg(opponent, "DiavoloWalk", null) != null || ("Walk" in opponent.state_machine.state.name) || ("Walk" in opponent.state_machine.state.title) || ("Walk" in opponent.state_machine.state.sprite_animation)
 			if opponentIsWalking:
 				spawn_particle_effect(MENACING, Vector2(float(opponent.get_pos().x) - 15,float(opponent.get_pos().y)- 25), Vector2(1,1))
-	
+
 	if state_machine.state.name == "Pose":
 		thumTick += 1
 		if thumTick >= 10:
 			thumTick -= 10
 			spawn_particle_effect(THUM, Vector2(float(get_pos().x) - 15,float(get_pos().y)- 25), Vector2(1,1))
 			CheckEasterEgg(opponent, "PoseParticle", THUM)
-	
+
 	if state_machine.state.name == "TimeSkipBurst":
 		var opponentStateType = opponent.state_machine.state.type
 		var opponentIsAttacking = opponent.state_machine.state.current_tick < 2 && (opponentStateType == 1 || opponentStateType == 2 || opponentStateType == 3)
 		if state_machine.state.current_tick < 9 && opponentIsAttacking:
 			BurstCounter()
-	
+
 	if framesToSkip <= 0 && postGrabVisuals == "CounterGrab":
 		var kc = get_kc()
 		var arm = spawn_object(FAKEARM, kc.get_pos().x, kc.get_pos().y)
@@ -205,8 +205,8 @@ func tick():
 		var camera = get_camera()
 		if camera:
 			camera.bump(Vector2(0.3, 1), 70, 0.6)
-	
-	
+
+
 	if framesToSkip <= 0 && postGrabVisuals == "AirGrab":
 		release_opponent()
 		postGrabVisuals = null
@@ -216,7 +216,7 @@ func tick():
 		var camera = get_camera()
 		if camera:
 			camera.bump(Vector2(1, 1), 30, 0.8)
-		
+
 		#add extra flair if this is the finishing move
 		if opponent.hp <= 0:
 			if camera:
@@ -224,17 +224,17 @@ func tick():
 			opponent.hitlag_ticks += 60
 			spawn_particle_effect(IRONBARNOFADE, Vector2(desiredX, -65))
 			repeatBarSpawnAsEndOfRoundFinisher = true
-	
-	
-	
+
+
+
 	if repeatBarSpawnAsEndOfRoundFinisher:
 		ClearParticles()
 		if opponent.hp > 0:
 			repeatBarSpawnAsEndOfRoundFinisher = false
 		var desiredX = clamp(float(opponent.get_pos().x + get_facing_int() * -2) , -stage_width + 7, stage_width - 7)
 		spawn_particle_effect(IRONBAR, Vector2(desiredX, -65))
-	
-	
+
+
 	var kc = get_kc()
 	if kc != null: #in the case a fighter happens to modify (or otherwise break) KC, return KC to normal. Looking at YOU vixen
 		kc.creator = self
@@ -243,7 +243,7 @@ func tick():
 		kc.can_be_hit_by_melee = true
 		kc.got_parried = false
 		kc.id = id
-		
+
 		#make it so tackle cant be looped
 		if !kc.attacking:
 			summonCanTP = true
@@ -252,7 +252,7 @@ func tick():
 		IncorporealSET(self, true)
 	if state_machine.state.name == "CounterExecute2":
 		spawn_particle_effect_relative(TIMEERASEBACK, Vector2(0,0))
-	
+
 	if time_skip >= 0:
 		TimeSkip(time_skip)
 	#spawn_object(TICKAFTER, 0, 0)
@@ -264,7 +264,7 @@ func apply_style(style):
 		if style.extra_color_1 == Color("ffffff"):
 			extraUsed = Color("711311")
 			style.extra_color_1 = extraUsed
-	
+
 	.apply_style(style)
 	if style != null:
 		storedExtraColor1 = style.get("extra_color_1")
@@ -281,7 +281,7 @@ func process_extra(extra):
 	.process_extra(extra)
 	if extra.has("desiredOffset"):
 		desiredStandOffset = extra["desiredOffset"]
-	
+
 
 func thrown_by(hitbox):
 	if erasedFramesLeft > 0 || invulnFramesLeft > 0:
@@ -302,7 +302,7 @@ func hit_by(hitbox):
 		kill_kc()
 		z_index = -2
 		return
-	
+
 	if epitaphFramesLeft > 0 && not hitbox.throw:
 		var isCommandThrow = IsBeingGrabbed()
 		if not isCommandThrow:
@@ -327,7 +327,7 @@ func is_colliding_with_opponent():
 	return .is_colliding_with_opponent()
 
 #restore combos so timeskip doesnt reset combos. Done here so we can wait for enemy tick
-func get_active_hitboxes(): 
+func get_active_hitboxes():
 	ComboRestoreChecker()
 	return .get_active_hitboxes()
 
@@ -346,7 +346,7 @@ var temporal_modifiers = {
 var incorporeal = false
 
 func get_kc():
-	if kingCrimsonID == null: 
+	if kingCrimsonID == null:
 		return null
 	if not objs_map.has(kingCrimsonID):
 		return null
@@ -354,7 +354,7 @@ func get_kc():
 
 func kill_kc():
 	var kc = get_kc()
-	if kc == null: 
+	if kc == null:
 		return
 	spawn_particle_effect(STANDOUT, Vector2(float(kc.get_pos().x), float(kc.get_pos().y)))
 	play_sound("standIn")
@@ -400,7 +400,7 @@ func TimeSkipLoop(): #This runs a number of frames in a row over a short span; c
 	else:
 		TimeSkipEnd()
 		return
-	
+
 	call_deferred("WaitForDeferred", 10)
 	yield(self, "queueFreed")
 
@@ -442,9 +442,9 @@ func TimeSkip(frames):
 		framesToSkip = frames
 	if temporal_modifiers["timeskip"]["incorporeal"] && invulnFramesLeft < framesToSkip:
 		invulnFramesLeft = framesToSkip
-	
+
 	ignoreEndFFX = ReplayManager.resimulating
-	
+
 	StoreComboStats()
 	RestoreComboStateDue = true
 	TimeSkipLoop()
@@ -452,7 +452,7 @@ func TimeSkip(frames):
 var ignoreEndFFX
 func TimeSkipEnd():
 	var game = MyGame()
-	
+
 	if not temporal_modifiers["timeskip"]["incorporeal"]: # ???
 		IncorporealSET(self, false)
 
@@ -499,7 +499,7 @@ func RestoreComboStats(i):
 	combo_proration = i.combo_proration
 	combo_moves_used = i.combo_moves_used
 	combo_supers = i.combo_supers
-	
+
 	opponent.trail_hp = i.trail_hp
 	opponent.wall_slams = i.wall_slams
 	opponent.hit_out_of_brace = i.hit_out_of_brace
@@ -509,10 +509,10 @@ func RestoreComboStats(i):
 func ComboRestoreChecker():
 	if not RestoreComboStateDue:
 		return
-	
+
 	if not state_interruptable && not opponent.state_interruptable:
 		return
-	
+
 	if opponent.state_interruptable && not opponent.busy_interrupt:
 		RestoreComboStateDue = false
 		return
@@ -523,21 +523,21 @@ func ComboRestoreChecker():
 
 func TimeErase(frames): #this creates a period of invulnerability for both diavolo and his opponent. its also a nightmare to make work over wireless. my mercy upon anyone who tries to fix it
 	erasedFramesLeft = frames
-	
+
 	opponentIsDummy = opponent.dummy
-	
+
 	#if false && not Network.multiplayer_active:
 	#	opponent.dummy = true #we don't do it this way because its glitchy. instead. we do it by setting the opponent's state_interruptable to false, which is about the same thing
 	#opponent.state_interruptable = false #doing it this way is just like... freaking impossible man
-	
+
 	opponent.start_invulnerability()
 	opponent.start_projectile_invulnerability()
 	opponent.burst_enabled = false
 	start_invulnerability()
 	start_projectile_invulnerability()
-	
+
 	memorizedDirection = opponent.get_facing_int()
-	
+
 	timeEraseEnded = false
 
 func EndTimeErase():
@@ -570,7 +570,7 @@ func CreateAfterImage(target, col = Color(1,1,1,1)):
 	var texture = spriteNode.frames.get_frame(currentAnim, targetFrame)
 	if texture == null:
 		return
-	
+
 	tempTexture = texture
 	carryoverColor = col
 	spawn_particle_effect(AFTERIMAGE, target.get_pos_visual() + Vector2(1, -16), Vector2(target.get_facing_int(), 0))
@@ -578,11 +578,11 @@ func CreateAfterImage(target, col = Color(1,1,1,1)):
 var particleNodesStowed = []
 func OnParticleSpawned(particle):
 	particleNodesStowed.append(particle)
-	
+
 	var shirt = particle.get_node_or_null("Shirt")
 	if shirt != null:
 		shirt.color = carryoverColor
-	
+
 	var emitter = particle.get_node_or_null("Emitter444")
 	if emitter == null:
 		return
@@ -594,11 +594,11 @@ const FAKEEXTRA = {"x" : 0, "y" : 0, "Start" : {"x" : 0, "y" : 0}, "End" : {"x" 
 func ForceRandomAttack(target):
 	if target.forfeit:
 		return
-	
+
 	if ReplayManager.replaying_ingame: #fix not being able to undo
 		return
-	
-	
+
+
 	var actionName = GetValidAttack(target)
 
 	#maybe try this function instead: on_action_selected(a,b,c)
@@ -607,8 +607,8 @@ func ForceRandomAttack(target):
 	if target.is_ghost:
 		target.state_machine._change_state(actionName, FAKEDATA, false, false)
 	if Network.multiplayer_active: #force command by manually setting opponent's chosen action
-	#	Network.action_inputs[target.id] = { "action":actionName, 
-	#		"data":FAKEDATA, 
+	#	Network.action_inputs[target.id] = { "action":actionName,
+	#		"data":FAKEDATA,
 	#		"extra":FAKEEXTRA, }
 		Network.turns_ready[target.id] = true
 	#target.queued_action = actionName
@@ -622,14 +622,14 @@ func ForceBufferedAttack(target):
 		#target.on_action_selected(attack,FAKEDATA,FAKEEXTRA)
 		target.state_machine._change_state(attack, FAKEDATA, false, false)
 		return
-	
+
 	if target.use_buffer:
 		return
-	
+
 	target.use_buffer = true
-	
+
 	target.buffered_input = { "action" : attack, "data" : FAKEDATA, "extra" : FAKEEXTRA }
-	
+
 	if not ReplayManager.playback and not opponent.is_ghost:
 		ReplayManager.frames[opponent.id][current_tick] = target.buffered_input
 
@@ -666,7 +666,7 @@ func GetValidAttack(target):
 			continue
 	for element in unusable:
 		states.erase(element)
-	
+
 	var actionName
 	if states.size() <= 0:
 		actionName = "Wait"
@@ -679,7 +679,7 @@ func GetValidAttack(target):
 
 	if actionName == null:
 		actionName = "ContinueAuto"
-	
+
 	return actionName
 
 func updateFoe(target, actionName):
@@ -698,7 +698,7 @@ func UpdateParticleCache():
 	for particle in particleNodesStowed:
 		if not is_instance_valid(particle):
 			temp.append(particle)
-	
+
 	for value in temp:
 		particleNodesStowed.erase(value)
 
@@ -726,15 +726,15 @@ func OnAirGrab():
 	TimeSkip(60)
 	var pos = get_pos()
 	var targetX = float(pos.x)
-	
+
 	var checkForWallDist = targetX * get_facing_int() > 0
-	
+
 	if checkForWallDist:
 		var distToWall = stage_width - abs(targetX) #balance change done to make it so wall angels are easier to escape, but also just as rewarding
 		if distToWall < 180:
 			targetX = (stage_width - 180) * get_facing_int()
 			gain_super_meter(100)
-	
+
 	set_pos(str(targetX), "0")
 	kc.set_pos(pos.x, pos.y + 30)
 	kc.state_machine._change_state("Wait")
@@ -745,7 +745,7 @@ func OnAirGrab():
 		if state.name == "AirGrabCommand":
 			usedHitbox = state.get_active_hitboxes()[0].to_data()
 			break
-	
+
 	opponent.hit_by(usedHitbox)
 	postGrabVisuals = "AirGrab"
 	opponent.set_pos(str(float(get_pos().x) + get_facing_int() * 180 ), "-75")
@@ -753,7 +753,7 @@ func OnAirGrab():
 	state_machine._change_state("CounterEnd")
 	desiredStandOffset = {"x":get_facing_int() * -100, "y":-50}
 	opponent.start_throw_invulnerability()
-	
+
 
 func OnGrabCounter():
 	var kc = get_kc()
@@ -794,8 +794,8 @@ func IsBeingGrabbed():
 					break
 			if followedState != null && followedState is ThrowState:
 				return true
-	
-	#disable grab projectiles here 
+
+	#disable grab projectiles here
 	var game = MyGame()
 	if game == null: return
 	for object in game.objects:
@@ -805,7 +805,7 @@ func IsBeingGrabbed():
 			continue
 		if not object.initialized:
 			continue
-		
+
 		var objectHitboxes = object.get_active_hitboxes()
 		for hb in objectHitboxes:
 			if (hb.overlaps(hurtbox) && projectileHitboxIsGrab(hb)):
@@ -833,7 +833,7 @@ func MyGame() -> Game:
 	var game = Global.current_game
 	if is_ghost:
 		game = game.ghost_game
-	
+
 	return game
 
 func CheckEasterEgg(target, easterEggName, easterEggParams):
