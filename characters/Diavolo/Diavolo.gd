@@ -254,9 +254,7 @@ func tick():
 		spawn_particle_effect_relative(TIMEERASEBACK, Vector2(0,0))
 	
 	if time_skip >= 0:
-		start_super(10) # Make this whatever
 		TimeSkip(time_skip)
-		time_skip = -1
 	#spawn_object(TICKAFTER, 0, 0)
 
 var storedStyle
